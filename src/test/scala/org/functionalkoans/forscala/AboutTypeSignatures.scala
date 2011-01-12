@@ -2,6 +2,7 @@ package org.functionalkoans.forscala
 
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
+import support.BlankValues._
 
 class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
   koan("In Java you declare a generic type within a <>, in Scala it is []") {

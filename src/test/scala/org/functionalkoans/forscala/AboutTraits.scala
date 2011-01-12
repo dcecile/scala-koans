@@ -2,6 +2,7 @@ package org.functionalkoans.forscala
 
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
+import support.BlankValues._
 
 class AboutTraits extends KoanSuite with ShouldMatchers {
   koan("A class uses the extends keyword to mixin a trait if it is the only relationship the class inherits") {

@@ -2,6 +2,7 @@ package org.functionalkoans.forscala
 
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
+import support.BlankValues._
 
 class AboutParentClasses extends KoanSuite with ShouldMatchers {
   koan("Class heirarchy is linear, a class can only extend from one parent class") {

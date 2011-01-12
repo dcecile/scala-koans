@@ -8,17 +8,18 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
 
   koan ("Option can have one of two values - Some or None") {
     val someValue: Option[String] = Some("I am wrapped in something")
-    someValue.get should be ("I am wrapped in something")
+    someValue.get should be (__)
     
     val nullValue: Option[String] = None
-    nullValue should be (None)
+    nullValue should be (__)
   }
+
   
   koan ("Represent null with None because null is a bad idea") {
     val value1 = maybeItWillReturnSomething(true)
     val value2 = maybeItWillReturnSomething(false)
     
-    value1.get should be("Found value")
+    value1.get should be(__)
     intercept[java.util.NoSuchElementException] {
       value2.get
     }    
@@ -28,9 +29,9 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
     val value1 = maybeItWillReturnSomething(true)
     val value2 = maybeItWillReturnSomething(false)
 
-    value1 getOrElse "No value" should be("Found value")
-    value2 getOrElse "No value" should be("No value")
-    value2 getOrElse {"default function" } should be("default function")
+    value1 getOrElse "No value" should be(__)
+    value2 getOrElse "No value" should be(__)
+    value2 getOrElse {"default function" } should be(__)
     
   }
   
@@ -38,8 +39,8 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
     val value1 = maybeItWillReturnSomething(true)
     val value2 = maybeItWillReturnSomething(false)
 
-    value1.isEmpty should be(false)
-    value2.isEmpty should be(true) 
+    value1.isEmpty should be(__)
+    value2.isEmpty should be(__) 
   }
   
   koan ("Option can also be used with pattern matching") {
@@ -48,30 +49,31 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
       case Some(v) => v
       case None => 0.0
     }
-    value should be(20.0)
+    value should be(__)
     val noValue: Option[Double] = None
     val value1 = noValue match {
       case Some(v) => v
       case None => 0.0
     }
-    value1 should be(0.0)
+    value1 should be(__)
     
   }
+
   
   koan ("Option is more than just a replacement of null, its also a collection") {
-    Some(10) map {_ + 10 } should be(Some(20))
-    Some(10) filter {_ == 10 } should be(Some(10))
-    Some(Some(10)) flatMap { _ map { _ + 10 } } should be(Some(20))
+    Some(10) map {_ + 10 } should be(__)
+    Some(10) filter {_ == 10 } should be(__)
+    Some(Some(10)) flatMap { _ map { _ + 10 } } should be(__)
     
     var newValue1 = 0
     Some(20) foreach { newValue1 = _ }
-    newValue1 should be(20)
+    newValue1 should be(__)
     
     var newValue2 = 0
     None foreach { newValue2 = _ }
-    newValue2 should be(0)
+    newValue2 should be(__)
   }
-  
+ 
   koan ("Using Option to avoid if checks for null") {
     //the ugly version
     def makeFullName(firstName: String, lastName: String) = {
@@ -85,8 +87,8 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
         null
       }
     }
-    makeFullName("Nilanjan", "Raychaudhuri") should be("Nilanjan Raychaudhuri")
-    makeFullName("Nilanjan", null) should be(null)
+    makeFullName("Nilanjan", "Raychaudhuri") should be(__)
+    makeFullName("Nilanjan", null) should be(__)
     //the pretty version
     def makeFullNamePrettyVersion(firstName: Option[String], lastName: Option[String]) = {
       firstName flatMap {fname =>
@@ -95,8 +97,8 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
         }
       }      
     }
-    makeFullNamePrettyVersion(Some("Nilanjan"), Some("Raychaudhuri")) should be(Some("Nilanjan Raychaudhuri"))    
-    makeFullNamePrettyVersion(Some("Nilanjan"), None) should be(None)    
+    makeFullNamePrettyVersion(Some("Nilanjan"), Some("Raychaudhuri")) should be(__)    
+    makeFullNamePrettyVersion(Some("Nilanjan"), None) should be(__)    
   }
   
   koan ("Using in for comprehension") {
@@ -105,7 +107,7 @@ class AboutOptions extends KoanSuite with ShouldMatchers {
       someValue <- values 
       value <- someValue
       } yield value
-    newValues should be(List(10, 20, 15))
+    newValues should be(List(__, __, __))
   }
   
   def maybeItWillReturnSomething(flag: Boolean): Option[String] = {
