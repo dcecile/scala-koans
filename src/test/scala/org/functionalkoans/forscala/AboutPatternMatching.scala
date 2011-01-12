@@ -19,7 +19,7 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
 	   case _ => println(stuff); 0
 	}
 	
-	myStuff should be (2)
+	myStuff should be (__)
 	
   }
 
@@ -33,7 +33,7 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
 	   case _ => println(stuff); 0
 	}
 
-	myStuff should be (0, 0, 255)
+	myStuff should be (__, __, __)
 	
   }
 
@@ -47,7 +47,7 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
 	   case _ => "what?"
 	}
 
-	goldilocks(("porridge", "Mama")) should be ("Mama eating porridge")
+	goldilocks(("porridge", "Mama")) should be (__)
 
   }
 
@@ -60,8 +60,8 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
 	   case _ => "what?"
 	}
 
-	goldilocks(("porridge", "Papa")) should be ("eating")
-	goldilocks(("chair", "Mama")) should be ("sitting")
+	goldilocks(("porridge", "Papa")) should be (__)
+	goldilocks(("chair", "Mama")) should be (__)
 
    }
    koan("Pattern matching can substitute parts of expressions") {
@@ -74,8 +74,8 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
 	   case _ => "what?"
 	 }
 
-	 goldilocks(("porridge", "Papa")) should be ("Papa said someone's been eating my porridge")
-	 goldilocks(("chair", "Mama")) should be ("Mama said someone's been sitting in my chair")
+	 goldilocks(("porridge", "Papa")) should be (__)
+	 goldilocks(("chair", "Mama")) should be (__)
 
   }
 
