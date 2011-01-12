@@ -1,0 +1,10 @@
+lib_managed
+project/boot
+project/build/target
+scalakoansexercises.iws
+scalakoansexercises.ipr
+scalakoansexercises.iml
+target
+.*\.DS_Store
+.*\.zip
+
