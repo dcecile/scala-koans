@@ -1,6 +1,7 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
+import support.BlankValues.__
 import org.scalatest.matchers.ShouldMatchers
 import scala.collection.mutable
 
