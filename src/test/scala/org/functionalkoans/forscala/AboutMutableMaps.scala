@@ -30,28 +30,28 @@ class AboutMutableMaps extends KoanSuite with ShouldMatchers {
     val myMap = mutable.Map("MI" -> "Michigan", "WI" -> "Wisconsin")
     myMap += ("IA" -> "Iowa", "OH" -> "Ohio")
     myMap contains "OH" should be(__)
-    myMap.size should be(4)
+    myMap.size should be(__)
   }
 
   koan("Mutable maps can have Lists of elements added") {
     val myMap = mutable.Map("MI" -> "Michigan", "WI" -> "Wisconsin")
     myMap ++= List("IA" -> "Iowa", "OH" -> "Ohio")
-    myMap contains "OH" should be(true)
-    myMap.size should be(4)
+    myMap contains "OH" should be(__)
+    myMap.size should be(__)
   }
 
   koan("Mutable maps can have Lists of elements removed") {
     val myMap = mutable.Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
     myMap --= List("IA", "OH")
-    myMap contains "OH" should be(false)
-    myMap.size should be(2)
+    myMap contains "OH" should be(__)
+    myMap.size should be(__)
   }
 
   koan("Mutable maps can be cleared") {
     val myMap = mutable.Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
     myMap.clear() // Convention is to use parens if possible when method called changes state
-    myMap contains "OH" should be(false)
-    myMap.size should be(0)
+    myMap contains "OH" should be(__)
+    myMap.size should be(__)
   }
 
 }
