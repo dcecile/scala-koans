@@ -24,7 +24,7 @@ class AboutConstructors extends KoanSuite with ShouldMatchers {
 
   koan("val in class definition defines read only property") {
     val aboutMe = new AboutConstructorWithValParameter("MyName")
-    aboutMe.name should be ("MyName")
+    aboutMe.name should be (__)
 
      
 
@@ -34,7 +34,7 @@ class AboutConstructors extends KoanSuite with ShouldMatchers {
 koan ("var in class definition defines read/write parameters") {
     val aboutMe = new AboutConstructorWithVarParameter("MyName")
     aboutMe.name = "YourName"
-    aboutMe.name should be ("YourName")
+    aboutMe.name should be (__)
     }
   
 koan("private member data is not accessible") {

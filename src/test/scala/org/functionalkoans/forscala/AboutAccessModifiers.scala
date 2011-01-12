@@ -2,6 +2,7 @@ package org.functionalkoans.forscala
 
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
+import support.BlankValues.__
 
 package harkonnen {
 
@@ -32,36 +33,36 @@ package harkonnen {
       //melange should be(1) //not accessible
       //oregano should be (2) //not accessible
       //tarragon should be (3) //not accessible
-      rosemary should be(4)
+      rosemary should be(__)
     }
 
     koan("With private keywords: Only private[packagename] members can be accessed via parameter") {
       //param.melange should be (1) //not accessible
       //param.oregano should be (2) //not accessible
       //param.tarragon should be (3) //not accessible
-      param.rosemary should be(4)
+      param.rosemary should be(__)
     }
 
     koan("With public keywords: All members can be accessed through inheritance") {
-      parsley should be(5)
+      parsley should be(__)
     }
 
     koan("With public keywords: All members can be accessed can be accessed via parameter") {
-      param.parsley should be(5)
+      param.parsley should be(__)
     }
 
     koan("With protected keywords: All members can be accessed via inheritance") {
-      sage should be(10)
-      paprika should be(11) //not accessible
-      saffron should be(12) //not accessible
-      thyme should be(13)
+      sage should be(__)
+      paprika should be(__) //not accessible
+      saffron should be(__) //not accessible
+      thyme should be(__)
     }
 
     koan("With protected keywords: Only private[packagename] members can be accessed via parameter") {
       //param.sage should be (10) //not accessible
       //param.paprika should be (11) //not accessible
       //param.saffron should be (12) //not accessible
-      param.thyme should be(13)
+      param.thyme should be(__)
     }
   }
 
@@ -80,7 +81,7 @@ package harkonnen {
       //param.melange should be (1) //not accessible
       //param.oregano should be (2) //not accessible
       //param.tarragon should be (3) //not accessible
-      param.rosemary should be (4)
+      param.rosemary should be (__)
     }
 
     koan("With public keywords: All members can be accessed through inheritance") {
@@ -88,7 +89,7 @@ package harkonnen {
     }
 
     koan("With public keywords: All members can be accessed can be accessed via parameter") {
-      param.parsley should be(5)
+      param.parsley should be(__)
     }
 
     koan("With protected keywords: All members can be accessed via inheritance") {
@@ -102,7 +103,7 @@ package harkonnen {
       //    param.sage should be (10) //not accessible
       //    param.paprika should be (11) //not accessible
       //    param.saffron should be (12) //not accessible
-      param.thyme should be(13)
+      param.thyme should be(__)
     }
   }
 
