@@ -31,15 +31,15 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
   }
 
   koan("Class meta-information can be retrieved by class name by using classOf[className]") {
-    classOf[String].getCanonicalName() should be("java.lang.String")
-    classOf[String].getSimpleName() should be("String")
+    classOf[String].getCanonicalName() should be(__)
+    classOf[String].getSimpleName() should be(__)
   }
 
   koan("Class meta-information can be derived from an object reference using getClass()") {
     val zoom = "zoom"
-    zoom.getClass should be(classOf[String])
-    zoom.getClass.getCanonicalName() should be("java.lang.String")
-    zoom.getClass.getSimpleName() should be("String")
+    zoom.getClass should be(__)  // Hint: classOf ...
+    zoom.getClass.getCanonicalName() should be(__)
+    zoom.getClass.getSimpleName() should be(__)
   }
 
   koan("isInstanceOf[className] is used to determine the if an object reference is an instance of given class") {
@@ -55,7 +55,7 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
     }
 
     val intRand = new IntRandomizer
-    intRand.draw.isInstanceOf[Int] should be(true)
+    intRand.draw.isInstanceOf[Int] should be(__)
   }
 
   koan("asInstanceOf[className] is used to cast one reference to another") {
@@ -96,14 +96,12 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
   }
 
   koan("null.asInstanceOf[className] can be used to generate basic default values") {
-    null.asInstanceOf[String] should be(null)
-    null.asInstanceOf[Int] should be(0)
-    null.asInstanceOf[Short] should be(0)
+    null.asInstanceOf[String] should be(__)
+    null.asInstanceOf[Int] should be(__)
+    null.asInstanceOf[Short] should be(__)
   }
 
-  koan("abstract override is used as a modifier that requires that a concrete class ") {}
 
-  koan("() => Unit is a type, and so is => Unit, and so is Int, Int => Int") {}   //TODO:Verify I got that right
 
 
 }

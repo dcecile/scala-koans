@@ -9,7 +9,7 @@ class AboutTuples extends KoanSuite with ShouldMatchers {
 
   koan ("Tuples can be created easily") {
     val tuple = ("apple", "dog")
-    tuple should be (("apple", "dog"))
+    tuple should be (__)
   }
 
   koan ("Tuple items may be accessed individually") {
@@ -17,18 +17,18 @@ class AboutTuples extends KoanSuite with ShouldMatchers {
     val fruit = tuple._1
     val animal = tuple._2
 
-    fruit should be ("apple")
-    animal should be ("dog")
+    fruit should be (__)
+    animal should be (__)
   }
 
   koan ("Tuples may be of mixed type") {
     val tuple5 = ("a", 1, 2.2, new Date(), BigDecimal(5))
 
-    tuple5._1 should be ("a")
-    tuple5._2 should be (1)
-    tuple5._3 should be (2.2)
-    tuple5._4.before(new Date()) should be (true)
-    tuple5._5 should be (BigDecimal(5))
+    tuple5._1 should be (__)
+    tuple5._2 should be (__)
+    tuple5._3 should be (__)
+    tuple5._4.before(new Date()) should be (__)
+    tuple5._5 should be (__)
   }
 
   
