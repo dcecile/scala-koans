@@ -7,4 +7,6 @@ scalakoansexercises.iml
 target
 .*\.DS_Store
 .*\.zip
-
+scala-koans.iml
+scala-koans.ipr
+scala-koans.iws
