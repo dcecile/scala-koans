@@ -10,21 +10,15 @@ class AboutPreconditions extends KoanSuite with ShouldMatchers {
 
 
     }
-    koan ("Violating preconditions throws an exception") {
-        intercept[IllegalArgumentException] {
 
-
-	        val myInstance = new WithParameterRequirement(0) // put the value needed to cause IllegalArgumentException in place of the blank
-	
-	    }
-    }
+    // Instruction: use Intercept to catch the type of exception thrown by an invalid precondition    
     koan ("On precondition violation, intercept expects type of exception thrown") {
-        intercept[IllegalArgumentException] { // put the exception that will be thrown in place of the blank
+        
 
 
 	        val myInstance = new WithParameterRequirement(0) 
 	
-	    }
+	    
     }
 }
 
