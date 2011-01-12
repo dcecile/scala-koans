@@ -33,11 +33,11 @@ class AboutEmptyValues extends KoanSuite with ShouldMatchers {
         assert(None.isEmpty === __ )
     }
 
-    /*test ("None can be cast Any, AnyRef or AnyVal") {
+    test ("None can be cast Any, AnyRef or AnyVal") {
         assert(None.asInstanceOf[Any] === __)
         assert(None.asInstanceOf[AnyRef] === __)
         assert(None.asInstanceOf[AnyVal] === __)
-    } */
+    } 
 
     test ("None cannot be cast to all types of objects") {
         intercept[ClassCastException] {    // put the exception you expect to see in place of the blank
