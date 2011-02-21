@@ -47,9 +47,8 @@ trait KoanSuite extends FunSuite with SeveredStackTraces {
         testName match {
           case Some(tn) => runTest(tn, reporter, stopRequested, configMap, tracker)
           case None =>
-            val tests = testNames.elements
             var failed = false
-            for (test <- tests) {
+            for (test <- testNames.iterator) {
               if (failed == false) {
                   val koanReporter = new KoanReporter(reporter)
                   runTest(test, koanReporter, stopper, configMap, tracker)
