@@ -6,10 +6,11 @@ import org.scalatest.Distributor
 import org.scalatest.Filter
 import org.scalatest.Tracker
 import org.scalatest.FunSuite
+import org.scalatest.SeveredStackTraces
 import org.scalatest.events.Event
 import org.scalatest.events.{TestSucceeded, TestFailed}
 
-trait KoanSuite extends FunSuite {
+trait KoanSuite extends FunSuite with SeveredStackTraces {
     override def runTests(testName : Option[String], reporter : Reporter, stopper : Stopper, filter : Filter,
                          configMap : Map[String, Any], distributor : Option[Distributor], tracker : Tracker) {       
 
