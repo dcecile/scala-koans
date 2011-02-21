@@ -1,5 +1,4 @@
 package org.functionalkoans.forscala.support
-import org.scalatest.TestFailedException
 import org.scalatest.Reporter
 import org.scalatest.Stopper
 import org.scalatest.Distributor
@@ -33,15 +32,11 @@ trait KoanSuite extends FunSuite with SeveredStackTraces {
             var succeeded = false
 
             override def apply(event : Event) = {
-                var modifiedEvent: Event = event
                 event match {
                     case e : TestSucceeded => succeeded = true
-                    case e: TestFailed => 
-                      val modifiedEvent = e.copy(throwable = Some(new TestFailedException("You have not reached enlightment", 0)))
-                      wrappedReporter(modifiedEvent)
-                    case _ => 
+                    case _ =>
                 }
-                //wrappedReporter(modifiedEvent)
+                wrappedReporter(event)
             }
         }
 
@@ -52,7 +47,7 @@ trait KoanSuite extends FunSuite with SeveredStackTraces {
         testName match {
           case Some(tn) => runTest(tn, reporter, stopRequested, configMap, tracker)
           case None =>
-            val tests = testNames.iterator
+            val tests = testNames.elements
             var failed = false
             for (test <- tests) {
               if (failed == false) {
