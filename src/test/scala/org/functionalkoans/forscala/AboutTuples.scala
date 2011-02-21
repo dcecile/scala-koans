@@ -24,10 +24,10 @@ class AboutTuples extends KoanSuite with ShouldMatchers {
   koan ("Tuples may be of mixed type") {
     val tuple5 = ("a", 1, 2.2, new Date(), BigDecimal(5))
 
-    tuple5._1 should be (__)
-    tuple5._2 should be (__)
+    tuple5._1.isInstanceOf[__]
+    tuple5._2.isInstanceOf[__]
     tuple5._3 should be (__)
-    tuple5._4.before(new Date()) should be (__)
+    tuple5._4.isInstanceOf[__]
     tuple5._5 should be (__)
   }
 
