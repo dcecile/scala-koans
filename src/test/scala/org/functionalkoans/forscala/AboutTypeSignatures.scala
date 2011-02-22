@@ -11,7 +11,7 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
 
   koan("Most of the time, Scala will infer the type and [] are optional") {
     val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" ::
-            Nil //Infers that the list assigned to variable is of type List[String]
+      Nil //Infers that the list assigned to variable is of type List[String]
   }
 
   koan("A trait can be declared containing a type, where a concrete implmenter will satisfy the type") {
@@ -37,7 +37,7 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
 
   koan("Class meta-information can be derived from an object reference using getClass()") {
     val zoom = "zoom"
-    zoom.getClass should be(__)  // Hint: classOf ...
+    zoom.getClass should be(__) // Hint: classOf ...
     zoom.getClass.getCanonicalName() should be(__)
     zoom.getClass.getSimpleName() should be(__)
   }
@@ -76,7 +76,7 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
   }
 
   koan("asInstanceOf[className] will throw a ClassCastException if a class derived from " +
-          "and the class target aren't from the same inheritance branch") {
+    "and the class target aren't from the same inheritance branch") {
     trait Randomizer[A] {
       def draw(): A
     }
@@ -100,8 +100,6 @@ class AboutTypeSignatures extends KoanSuite with ShouldMatchers {
     null.asInstanceOf[Int] should be(__)
     null.asInstanceOf[Short] should be(__)
   }
-
-
 
 
 }

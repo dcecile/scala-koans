@@ -23,22 +23,22 @@ class AboutParentClasses extends KoanSuite with ShouldMatchers {
   }
 
   koan("An abstract class, as in Java, cannot be instantiated and only inherited") {
-     abstract class Worker(val firstName : String, val lastName : String) {}
+    abstract class Worker(val firstName: String, val lastName: String) {}
 
-// if you uncomment this line, if will fail compilation
-     //val worker = new Worker
-   }
+    // if you uncomment this line, if will fail compilation
+    //val worker = new Worker
+  }
 
 
   koan("An class can be placed inside an abstract class just like in java") {
-    abstract class Worker(val firstName : String, val lastName : String) {
-        class Assignment (val hours : Long) {
-	// nothing to do here.  Just observe that it compiles
-     }
+    abstract class Worker(val firstName: String, val lastName: String) {
 
+      class Assignment(val hours: Long) {
+        // nothing to do here.  Just observe that it compiles
+      }
+
+    }
   }
-}
-
 
 
 }

@@ -10,3 +10,6 @@ target
 scala-koans.iml
 scala-koans.ipr
 scala-koans.iws
+.idea*
+.classpath
+.project

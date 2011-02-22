@@ -156,7 +156,7 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
   }
 
   koan("Instantiations are tracked and will not allow a duplicate instantiation. " +
-          "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated twice.") {
+    "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated twice.") {
 
     var sb = List[String]()
 
@@ -187,7 +187,7 @@ class AboutTraits extends KoanSuite with ShouldMatchers {
 
 
   koan("The diamond of death (http://en.wikipedia.org/wiki/Diamond_problem) is avoided since " +
-          "instantiations are tracked and will not allow multiple instantiations") {
+    "instantiations are tracked and will not allow multiple instantiations") {
 
     var sb = List[String]()
 

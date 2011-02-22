@@ -3,6 +3,7 @@ package org.functionalkoans.forscala
 import support.KoanSuite
 import support.BlankValues._
 import org.scalatest.matchers.ShouldMatchers
+
 class AboutMaps extends KoanSuite with ShouldMatchers {
 
   koan("Maps can be created easily") {
