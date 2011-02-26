@@ -69,7 +69,7 @@ class AboutPatternMatching extends KoanSuite with ShouldMatchers {
     def goldilocks(expr: Any) = expr match {
       case ("porridge", bear) => bear + " said someone's been eating my porridge"
       case ("chair", bear) => bear + " said someone's been sitting in my chair"
-      case ("bed", bear) => bear + " sais someone's been sleeping in my bed"
+      case ("bed", bear) => bear + " says someone's been sleeping in my bed"
       case _ => "what?"
     }
 
