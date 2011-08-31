@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutConstructors extends KoanSuite with ShouldMatchers {
+class AboutConstructors extends KoanSuite {
 
   class AboutConstructorWithAuxiliaryConstructor(val name: String) {
     // invoke auxiliary constructor

@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutLazySequences extends KoanSuite with ShouldMatchers {
+class AboutLazySequences extends KoanSuite {
 
   koan("Creating a lazy collection form a strict collection") {
     val strictList = List(10, 20, 30)

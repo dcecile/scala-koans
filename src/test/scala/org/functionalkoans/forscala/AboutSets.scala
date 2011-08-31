@@ -1,9 +1,7 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
-class AboutSets extends KoanSuite with ShouldMatchers {
+class AboutSets extends KoanSuite {
 
   koan("Sets can be created easily") {
     val mySet = Set("Michigan", "Ohio", "Wisconsin", "Iowa")

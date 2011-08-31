@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutNamedAndDefaultArguments() extends KoanSuite with ShouldMatchers {
+class AboutNamedAndDefaultArguments() extends KoanSuite {
 
   class WithoutClassParameters() {
     def addColors(red: Int, green: Int, blue: Int) = {

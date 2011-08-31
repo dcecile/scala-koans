@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import org.functionalkoans.forscala.support.KoanSuite
 
-class AboutImportsAndPackages extends KoanSuite with ShouldMatchers {
+class AboutImportsAndPackages extends KoanSuite {
   koan("An import can be placed in a method, hint this koan is a method") {
     import scala.collection.mutable.ArrayBuffer
     val arrayBuffer = ArrayBuffer.range(2, 10)
@@ -17,7 +15,7 @@ class Artist(val firstName: String, val lastName: String)
 
 package subpackage {
 
-class AboutImportsAndPackagesInSubpackages extends KoanSuite with ShouldMatchers {
+class AboutImportsAndPackagesInSubpackages extends KoanSuite {
   koan("A package can be included in a file with an established established package, " +
     "and can encapsulate it's contents with a {} block") {
     val luther = new Artist("Luther", "Vandross")
@@ -35,7 +33,7 @@ class Album(val name: String, val year: Short, val artist: Artist)
 
 package media {
 
-class AboutReferencingAbsolutePackages extends KoanSuite with ShouldMatchers {
+class AboutReferencingAbsolutePackages extends KoanSuite {
 
   import org.functionalkoans.forscala.album.Album
 
@@ -46,7 +44,7 @@ class AboutReferencingAbsolutePackages extends KoanSuite with ShouldMatchers {
   }
 }
 
-class AboutReferencingAbsoluteRootPackages extends KoanSuite with ShouldMatchers {
+class AboutReferencingAbsoluteRootPackages extends KoanSuite {
 
   import _root_.org.functionalkoans.forscala.album.Album
 
@@ -57,7 +55,7 @@ class AboutReferencingAbsoluteRootPackages extends KoanSuite with ShouldMatchers
   }
 }
 
-class AboutReferencingRelativePackages extends KoanSuite with ShouldMatchers {
+class AboutReferencingRelativePackages extends KoanSuite {
 
   import album.Album
 
@@ -80,7 +78,7 @@ class Distributor(val name: String)
 
 }
 
-class AboutImportingTechniques extends KoanSuite with ShouldMatchers {
+class AboutImportingTechniques extends KoanSuite {
   koan("To import all classes of a package, use _ as a wildcard") {
     import music_additions._
     val genre = new Genre("Jazz")

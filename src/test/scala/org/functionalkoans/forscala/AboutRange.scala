@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutRange extends KoanSuite with ShouldMatchers {
+class AboutRange extends KoanSuite {
 
   koan("Range are not inclusive at end of range") {
     val someNumbers = Range(0, 10)

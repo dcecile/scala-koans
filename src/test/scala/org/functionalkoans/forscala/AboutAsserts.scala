@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutAsserts extends KoanSuite with ShouldMatchers {
+class AboutAsserts extends KoanSuite {
 
   koan("should be true") {
     assert(false) // should be true

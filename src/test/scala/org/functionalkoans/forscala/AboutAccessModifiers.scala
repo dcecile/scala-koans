@@ -1,12 +1,10 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
-import support.BlankValues.__
 
 package harkonnen {
 
-class AlphaBase extends KoanSuite with ShouldMatchers {
+class AlphaBase extends KoanSuite {
   private val melange = 1
   private[this] val oregano = 2
   private[AlphaBase] val tarragon = 3
@@ -25,7 +23,7 @@ class AlphaBase extends KoanSuite with ShouldMatchers {
 }
 
 
-class BetaBase extends AlphaBase with KoanSuite with ShouldMatchers {
+class BetaBase extends AlphaBase with KoanSuite {
   val param: AlphaBase = new AlphaBase
 
   koan("With private keywords: Only private[packagename] members can be accessed via inheritance") {
@@ -65,7 +63,7 @@ class BetaBase extends AlphaBase with KoanSuite with ShouldMatchers {
   }
 }
 
-class GammaBase extends KoanSuite with ShouldMatchers {
+class GammaBase extends KoanSuite {
 
   val param: AlphaBase = new AlphaBase
 
@@ -112,7 +110,7 @@ package atreides {
 
 import org.functionalkoans.forscala.harkonnen.AlphaBase
 
-class DeltaBase extends AlphaBase with KoanSuite with ShouldMatchers {
+class DeltaBase extends AlphaBase with KoanSuite {
   val param: AlphaBase = new AlphaBase
 
   koan("With private keywords: Only private and private[packagename] members can be accessed via inheritance") {
@@ -152,7 +150,7 @@ class DeltaBase extends AlphaBase with KoanSuite with ShouldMatchers {
   }
 }
 
-class EpsilonBase extends KoanSuite with ShouldMatchers {
+class EpsilonBase extends KoanSuite {
   val param: AlphaBase = new AlphaBase
 
   koan("With private keywords: Only private and private[packagename] members can be accessed via inheritance") {
@@ -194,6 +192,6 @@ class EpsilonBase extends KoanSuite with ShouldMatchers {
 
 }
 
-class AboutAccessModifiers extends KoanSuite with ShouldMatchers {
+class AboutAccessModifiers extends KoanSuite {
 
 }

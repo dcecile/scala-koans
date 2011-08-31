@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutValAndVar extends KoanSuite with ShouldMatchers {
+class AboutValAndVar extends KoanSuite {
 
   koan("vars may be reassigned") {
     var a = 5

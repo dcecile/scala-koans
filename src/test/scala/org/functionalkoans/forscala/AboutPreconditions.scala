@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutPreconditions extends KoanSuite with ShouldMatchers {
+class AboutPreconditions extends KoanSuite {
 
   class WithParameterRequirement(val myValue: Int) {
     require(myValue != 0)
@@ -16,8 +14,8 @@ class AboutPreconditions extends KoanSuite with ShouldMatchers {
 
   // Instruction: use Intercept to catch the type of exception thrown by an invalid precondition
   koan("On precondition violation, intercept expects type of exception thrown") {
-    intercept[IllegalArgumentException] {
-      val myInstance = new WithParameterRequirement(__)
+    intercept[___] {
+      val myInstance = new WithParameterRequirement("")
     }
   }
 }

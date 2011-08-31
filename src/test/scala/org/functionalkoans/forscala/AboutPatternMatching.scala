@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutPatternMatching extends KoanSuite with ShouldMatchers {
+class AboutPatternMatching extends KoanSuite {
 
 
   koan("Pattern matching returns something") {

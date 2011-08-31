@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
-import support.BlankValues._
 
-class AboutParentClasses extends KoanSuite with ShouldMatchers {
+class AboutParentClasses extends KoanSuite {
   koan("Class heirarchy is linear, a class can only extend from one parent class") {
     class Worker(firstName: String, lastName: String) {}
     class Employee(firstName: String, lastName: String, employeeID: Long) extends Worker(firstName, lastName)

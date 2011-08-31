@@ -1,9 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
-class AboutUniformAccessPrinciple extends KoanSuite with ShouldMatchers {
+
+class AboutUniformAccessPrinciple extends KoanSuite {
 
   class CalculatesAgeUsingMethod(var currentYear: Int, birthYear: Int) {
 

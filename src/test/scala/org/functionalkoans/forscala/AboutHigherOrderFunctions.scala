@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutHigherOrderFunctions extends KoanSuite with ShouldMatchers {
+class AboutHigherOrderFunctions extends KoanSuite {
 
   koan("Meet lambda. Anonymous function") {
     def lambda = {

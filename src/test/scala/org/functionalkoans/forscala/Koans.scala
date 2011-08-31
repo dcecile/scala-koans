@@ -1,14 +1,10 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.Suite
-import org.scalatest.junit.JUnitRunner
-import org.junit.runner.RunWith
+import org.scalatest._
+import support.Master
 
-@RunWith(classOf[JUnitRunner])
-class PathToEnlightenment extends Suite {
-
-
-  override def nestedSuites = List(new AboutAsserts,
+class Koans extends Suite {
+  override def nestedSuites = List(
     new AboutValAndVar,
     new AboutConstructors,
     new AboutTuples,
@@ -32,8 +28,11 @@ class PathToEnlightenment extends Suite {
     new AboutPreconditions,
     new AboutHigherOrderFunctions,
     new AboutUniformAccessPrinciple
-
   )
 
+  override def run(testName: Option[String], reporter: Reporter, stopper: Stopper, filter: Filter,
+                   configMap: Map[String, Any], distributor: Option[Distributor], tracker: Tracker) {
+    super.run(testName, reporter, Master, filter, configMap, distributor, tracker)
+  }
 
 }

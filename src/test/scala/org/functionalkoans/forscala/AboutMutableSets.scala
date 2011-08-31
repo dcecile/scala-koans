@@ -1,11 +1,9 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import scala.collection.mutable
 
-class AboutMutableSets extends KoanSuite with ShouldMatchers {
+class AboutMutableSets extends KoanSuite {
 
   koan("Mutable sets can be created easily") {
     val mySet = mutable.Set("Michigan", "Ohio", "Wisconsin", "Iowa")

@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
-import support.BlankValues._
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutForExpressions extends KoanSuite with ShouldMatchers {
+class AboutForExpressions extends KoanSuite {
 
   koan("For loops can be simple") {
     val someNumbers = Range(0, 10)

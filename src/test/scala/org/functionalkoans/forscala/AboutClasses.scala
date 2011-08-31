@@ -1,10 +1,8 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
-import support.BlankValues.__
 import support.KoanSuite
 
-class AboutClasses extends KoanSuite with ShouldMatchers {
+class AboutClasses extends KoanSuite {
 
 
    // you can define class with var or val parameters
