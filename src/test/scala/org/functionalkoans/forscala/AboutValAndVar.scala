@@ -6,7 +6,7 @@ class AboutValAndVar extends KoanSuite {
 
   koan("vars may be reassigned") {
     var a = 5
-    a should be(__)
+    a should be(10)
 
     a = 7
     a should be(__)
