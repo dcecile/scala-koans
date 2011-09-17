@@ -28,7 +28,19 @@ class Koans extends Suite {
     new AboutImportsAndPackages,
     new AboutPreconditions,
     new AboutHigherOrderFunctions,
-    new AboutUniformAccessPrinciple
+    new AboutUniformAccessPrinciple,
+    new AboutPatternMatching,
+    new AboutLiterals,
+    new AboutPartiallyOrderedFunctions,  
+    new AboutPartialFunctions,
+    new AboutEnumerations,
+    new AboutInfixPrefixAndPostfixOperators,
+    new AboutInfixTypes,
+    new AboutImplicits,
+    new AboutInteroperability,
+    new AboutManifests,
+    new AboutTypeVariance
+    
   )
 
   override def run(testName: Option[String], reporter: Reporter, stopper: Stopper, filter: Filter,
