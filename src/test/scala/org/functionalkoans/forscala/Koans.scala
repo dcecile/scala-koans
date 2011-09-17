@@ -31,13 +31,10 @@ class Koans extends Suite {
     new AboutUniformAccessPrinciple,
     new AboutPatternMatching,
     new AboutLiterals,
-    new AboutPartiallyOrderedFunctions,  
-    new AboutPartialFunctions,
     new AboutEnumerations,
     new AboutInfixPrefixAndPostfixOperators,
     new AboutInfixTypes,
     new AboutImplicits,
-    new AboutInteroperability,
     new AboutManifests,
     new AboutTypeVariance
     
