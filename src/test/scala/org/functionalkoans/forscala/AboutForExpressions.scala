@@ -22,19 +22,7 @@ class AboutForExpressions extends KoanSuite {
 
     sum should equal(__)
   }
-  koan("For loops can produce a list which can be summed easily") {
-    val someNumbers = Range(0, 10)
-
-    val theList =
-      for {
-        i <- someNumbers
-        if ((i % 2) == 0)
-      }
-      yield i
-
-    theList.reduceLeft(_ + _) should be(__)
-  }
-
+  
   koan("For expressions can nest, with later generators varying more rapidly than earlier ones") {
     val xValues = Range(1, 5)
     val yValues = Range(1, 3)
