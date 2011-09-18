@@ -8,8 +8,7 @@ class AboutTypeSignatures extends KoanSuite {
   }
 
   koan("Most of the time, Scala will infer the type and [] are optional") {
-    val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" ::
-      Nil //Infers that the list assigned to variable is of type List[String]
+    val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" :: Nil //Infers that the list assigned to variable is of type List[String]
   }
 
   koan("A trait can be declared containing a type, where a concrete implmenter will satisfy the type") {
@@ -25,7 +24,7 @@ class AboutTypeSignatures extends KoanSuite {
     }
 
     val intRand = new IntRandomizer
-    intRand.draw should be < Int.MaxValue
+    (intRand.draw < Int.MaxValue) should be (__)
   }
 
   koan("Class meta-information can be retrieved by class name by using classOf[className]") {
@@ -71,6 +70,7 @@ class AboutTypeSignatures extends KoanSuite {
     val intRand = new IntRandomizer
     val rand = intRand
     val intRand2 = rand.asInstanceOf[IntRandomizer]
+    intRand2.isInstanceOf[IntRandomizer] should be(__)
   }
 
   koan("asInstanceOf[className] will throw a ClassCastException if a class derived from " +

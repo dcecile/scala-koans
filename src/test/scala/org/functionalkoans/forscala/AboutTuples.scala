@@ -22,10 +22,7 @@ class AboutTuples extends KoanSuite {
   koan("Tuples may be of mixed type") {
     val tuple5 = ("a", 1, 2.2, new Date(), BigDecimal(5))
 
-   // tuple5._1.isInstanceOf[___]
-   // tuple5._2.isInstanceOf[___]
     tuple5._3 should be(__)
-   // tuple5._4.isInstanceOf[___]
     tuple5._5 should be(__)
   }
 
