@@ -1,10 +1,12 @@
-package org.functionalkoans.forscala
+pckage org.functionalkoans.forscala
 
-import org.scalatest._
-import support.Master
+import org.scalatest.Suite
+import org.scalatest.junit.JUnitRunner
+import org.junit.runner.RunWith
 
-class Koans extends Suite {
-  override def nestedSuites = List(
+@RunWith(classOf[JUnitRunner])
+class PathToEnlightenment extends Suite {
+  override def nestedSuites = List(new AboutAsserts,
     new AboutAsserts,
     new AboutValAndVar,
     new AboutConstructors,
@@ -22,6 +24,7 @@ class Koans extends Suite {
     new AboutForExpressions,
     new AboutEmptyValues,
     new AboutParentClasses,
+    new AboutAccessModifiers,
     new AboutTypeSignatures,
     new AboutTraits,
     new AboutImportsAndPackages,
@@ -41,12 +44,5 @@ class Koans extends Suite {
     new AboutInteroperability,
     new AboutManifests,
     new AboutTypeVariance
-    
   )
-
-  override def run(testName: Option[String], reporter: Reporter, stopper: Stopper, filter: Filter,
-                   configMap: Map[String, Any], distributor: Option[Distributor], tracker: Tracker) {
-    super.run(testName, reporter, Master, filter, configMap, distributor, tracker)
-  }
-
 }
