@@ -128,18 +128,18 @@ class DeltaBase extends AlphaBase with KoanSuite {
   }
 
   koan("With public keywords: All members can be accessed through inheritance") {
-    parsley should be(5)
+    parsley should be(__)
   }
 
   koan("With public keywords: All members can be accessed can be accessed via parameter") {
-    param.parsley should be(5)
+    param.parsley should be(__)
   }
 
   koan("With protected keywords: All members can be accessed via inheritance") {
-    sage should be(10)
-    paprika should be(11) //not accessible
-    saffron should be(12) //not accessible
-    thyme should be(13)
+    sage should be(__)
+    paprika should be(__) //not accessible
+    saffron should be(__) //not accessible
+    thyme should be(__)
   }
 
   koan("With protected keywords: Only private[packagename] members can be accessed via parameter") {
@@ -172,7 +172,7 @@ class EpsilonBase extends KoanSuite {
   }
 
   koan("With public keywords: All members can be accessed can be accessed via parameter") {
-    param.parsley should be(5)
+    param.parsley should be(__)
   }
 
   koan("With protected keywords: All members can be accessed via inheritance") {
