@@ -32,13 +32,11 @@ class Koans extends Suite {
     new AboutLiteralBooleans,
     new AboutLiteralNumbers,
     new AboutLiteralStrings,
-    new AboutPartiallyOrderedFunctions,  
     new AboutPartialFunctions,
     new AboutEnumerations,
     new AboutInfixPrefixAndPostfixOperators,
     new AboutInfixTypes,
     new AboutImplicits,
-    new AboutInteroperability,
     new AboutManifests,
     new AboutTypeVariance
     
