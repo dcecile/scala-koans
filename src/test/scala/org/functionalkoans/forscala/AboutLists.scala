@@ -65,7 +65,7 @@ class AboutLists extends KoanSuite {
       v => v * 2
     } should equal(List(__, __, __, __, __))
 
-    // filter out any values divisible by 3 in the list
+    // find any values divisible by 3 in the list
     a.filter {
       v => v % 3 == 0
     } should equal(List(__, __))
