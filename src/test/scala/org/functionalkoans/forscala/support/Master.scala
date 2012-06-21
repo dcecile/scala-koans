@@ -15,7 +15,7 @@ object Master extends Stopper {
 
   def studentFailed(event: Event): String = {
     studentNeedsToMeditate = true
-    return event match {
+    event match {
       case e: HasTestNameAndSuiteName => meditationMessage(e)
       case _ => ""
     }
