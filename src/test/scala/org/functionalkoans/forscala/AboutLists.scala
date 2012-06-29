@@ -9,18 +9,30 @@ class AboutLists extends KoanSuite {
     val b: List[Int] = Nil
 
     (a == Nil) should be(__)
-    (a eq Nil) should be(__)
-
     (b == Nil) should be(__)
-    (b eq Nil) should be(__)
-
     (a == b) should be(__)
-    (a eq b) should be(__)
+    
   }
 
   koan("Lists are easily created") {
     val a = List(1, 2, 3)
     a should equal(List(__, __, __))
+  }
+
+  koan("Eq tests identity (same object)") {
+    val a = List(1, 2, 3)
+    val b = List(1, 2, 3)
+
+
+    (a eq b) should be(__)
+  }
+
+  koan("== tests equality (same content)") {
+    val a = List(1, 2, 3)
+    val b = List(1, 2, 3)
+
+    (a == b) should be(__)
+
   }
 
   koan("Lists can be accessed via head and tail") {
