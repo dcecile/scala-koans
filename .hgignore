@@ -13,3 +13,4 @@ scala-koans.iws
 .idea*
 .classpath
 .project
+.cache
