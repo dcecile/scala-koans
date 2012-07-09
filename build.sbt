@@ -15,7 +15,7 @@ showTiming := false
 showSuccess := false
 
 // append -deprecation to the options passed to the Scala compiler
-scalacOptions += "-deprecation"
+scalacOptions ++= Seq("-deprecation", "-unchecked")
 
 // disable updating dynamic revisions (including -SNAPSHOT versions)
 offline := true
