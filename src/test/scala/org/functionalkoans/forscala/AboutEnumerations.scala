@@ -28,7 +28,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
     Planets.Mercury.toString should be(__) //How does it get the name? by Reflection.
     Planets.Venus.toString should be(__)
 
-    (Planets.Earth == Planets.Earth) should be(true)
+    (Planets.Earth == Planets.Earth) should be(__)
     (Planets.Neptune == Planets.Jupiter) should be(__)
   }
 
@@ -55,7 +55,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
     GreekPlanets.Mercury.toString should be("__")
     GreekPlanets.Venus.toString should be("__")
 
-    (GreekPlanets.Earth == GreekPlanets.Earth) should be(true)
+    (GreekPlanets.Earth == GreekPlanets.Earth) should be(__)
     (GreekPlanets.Neptune == GreekPlanets.Jupiter) should be(__)
   }
 
@@ -71,7 +71,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
     Planets.Mercury.toString should be("__") 
     Planets.Venus.toString should be("__")
 
-    (Planets.Earth == Planets.Earth) should be(true)
+    (Planets.Earth == Planets.Earth) should be(__)
     (Planets.Neptune == Planets.Jupiter) should be(__)
   }
 
@@ -96,7 +96,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
     GreekPlanets.Mercury.toString should be(__)
     GreekPlanets.Venus.toString should be(__)
 
-    (GreekPlanets.Earth == GreekPlanets.Earth) should be(true)
+    (GreekPlanets.Earth == GreekPlanets.Earth) should be(__)
     (GreekPlanets.Neptune == GreekPlanets.Jupiter) should be(__)
   }
 
@@ -104,7 +104,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
 
     object Planets extends Enumeration {
 
-      val G = 6.67300E-11;
+      val G = 6.67300E-11
 
       class PlanetValue(val i: Int, val name: String, val mass: Double, val radius: Double)
               extends Val(i: Int, name: String) {
@@ -112,6 +112,8 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
         def surfaceGravity = G * mass / (radius * radius)
 
         def surfaceWeight(otherMass: Double) = otherMass * surfaceGravity
+
+        def compare(that: PlanetValue) = this.i - that.i
       }
 
       val Mercury = new PlanetValue(0, "Mercury", 3.303e+23, 2.4397e6)
@@ -126,7 +128,7 @@ class AboutEnumerations extends KoanSuite with ShouldMatchers {
 
     }
 
-    Planets.Earth.mass should be(5.976e+24)
+    Planets.Earth.mass should be(__)
     Planets.Earth.radius should be(__)
   }
 }

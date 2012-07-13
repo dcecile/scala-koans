@@ -30,9 +30,7 @@ class AboutLazySequences extends KoanSuite {
   }
 
   koan("Lazy collection sometimes avoid processing errors") {
-    val lazyList = List(2, -2, 0, 4).view map {
-      2 / _
-    }
+    val lazyList = List(2, -2, 0, 4).view map { 2 / _ }
     lazyList.head should be(__)
     lazyList(1) should be(__)
     intercept[ArithmeticException] {

@@ -13,13 +13,13 @@ class AboutHigherOrderFunctions extends KoanSuite {
   }
 
   koan("Meet closure. Closure is any function that closes over the environment") {
-    var incrementor = 1
+    var incrementer = 1
     def closure = {
-      x: Int => x + incrementor
+      x: Int => x + incrementer
     }
     val result = List(1, 2, 3) map closure
     result should be(__)
-    incrementor = 2
+    incrementer = 2
     val result1 = List(1, 2, 3) map closure
     result1 should be(__)
   }
@@ -30,10 +30,10 @@ class AboutHigherOrderFunctions extends KoanSuite {
         def apply(y: Int): Int = x + y
       }
     }
-    addWithoutSyntaxSugar(1).isInstanceOf[Function1[Int, Int]] should be(__)
+    addWithoutSyntaxSugar(1).isInstanceOf[Function1[_,_]] should be(__)
 
     def add(x: Int) = (y: Int) => x + y
-    add(1).isInstanceOf[Function1[Int, Int]] should be(__)
+    add(1).isInstanceOf[Function1[_,_]] should be(__)
     add(2)(3) should be(__)
 
     def fiveAdder = add(5)
@@ -42,26 +42,23 @@ class AboutHigherOrderFunctions extends KoanSuite {
 
 
   koan("function taking another function as parameter. Helps in compositioning functions") {
-    def makeUpper(xs: List[String]) = xs map {
-      _.toUpperCase()
-    }
+    def makeUpper(xs: List[String]) = xs map {_.toUpperCase}
     def makeWhatEverYouLike(xs: List[String], sideEffect: String => String) = {
       xs map sideEffect
     }
+
     makeUpper(List("abc", "xyz", "123")) should be(__)
 
     makeWhatEverYouLike(List("ABC", "XYZ", "123"), {
       x => x.toLowerCase
     }) should be(__)
     //using it inline
-    List("Scala", "Erlang", "Clojure") map {
-      _.length
-    } should be(__)
+    List("Scala", "Erlang", "Clojure") map {_.length} should be(__)
   }
 
   koan("Currying is a technique to transform function with multiple parameters to function with one parameter") {
     def multiply(x: Int, y: Int) = x * y
-    (multiply _).isInstanceOf[Function2[Int, Int, Int]] should be(__)
+    (multiply _).isInstanceOf[Function2[_, _, _]] should be(__)
     val multiplyCurried = (multiply _).curried
     multiply(4, 5) should be(__)
     multiplyCurried(3)(2) should be(__)

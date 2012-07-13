@@ -16,7 +16,7 @@ class AboutInteroperability extends KoanSuite with ShouldMatchers {
     import scala.collection.JavaConversions._
     val d = new SomeJavaClass
     val e = List("one", "two", "three")
-    d.findSizeOfRawType(e) should be(3)
+    d.findSizeOfRawType(e) should be(__)
   }
 
   class Boat(size: Int, manufacturer: String)
@@ -25,6 +25,6 @@ class AboutInteroperability extends KoanSuite with ShouldMatchers {
     import scala.collection.JavaConversions._
     val d = new SomeJavaClass
     val e = List(new Boat(33, "Skyway"), new Boat(35, "New Boat"))
-    d.findSizeOfUnknownType(e) should be(2)
+    d.findSizeOfUnknownType(e) should be(__)
   }
 }

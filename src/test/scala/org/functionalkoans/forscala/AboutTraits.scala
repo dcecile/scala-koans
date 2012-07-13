@@ -22,7 +22,7 @@ class AboutTraits extends KoanSuite {
     myListener.listen(evt)
   }
 
-  koan("A class can only extend from one class or trait, any subsequent extension should use the keyword \'with\'") {
+  koan("A class can only \'extend\' from one class or trait, any subsequent extension should use the keyword \'with\'") {
 
     case class Event(name: String, source: Any)
 

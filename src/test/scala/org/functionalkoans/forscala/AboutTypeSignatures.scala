@@ -11,7 +11,7 @@ class AboutTypeSignatures extends KoanSuite {
     val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" :: Nil //Infers that the list assigned to variable is of type List[String]
   }
 
-  koan("A trait can be declared containing a type, where a concrete implmenter will satisfy the type") {
+  koan("A trait can be declared containing a type, where a concrete implementer will satisfy the type") {
     trait Randomizer[A] {
       def draw(): A
     }
@@ -69,7 +69,7 @@ class AboutTypeSignatures extends KoanSuite {
 
     val intRand = new IntRandomizer
     val rand = intRand
-    val intRand2 = rand.asInstanceOf[IntRandomizer]
+    val intRand2 = rand
     intRand2.isInstanceOf[IntRandomizer] should be(__)
   }
 

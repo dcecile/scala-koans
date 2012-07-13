@@ -24,7 +24,6 @@ class Koans extends Suite {
     new AboutParentClasses,
     new AboutTypeSignatures,
     new AboutTraits,
-    new AboutImportsAndPackages,
     new AboutPreconditions,
     new AboutHigherOrderFunctions,
     new AboutUniformAccessPrinciple,
@@ -33,12 +32,13 @@ class Koans extends Suite {
     new AboutLiteralNumbers,
     new AboutLiteralStrings,
     new AboutPartialFunctions,
-    new AboutEnumerations,
+    new AboutIterables,
     new AboutInfixPrefixAndPostfixOperators,
     new AboutInfixTypes,
     new AboutImplicits,
     new AboutManifests,
-    new AboutTypeVariance
+    new AboutTypeVariance,
+    new AboutEnumerations
     
   )
 

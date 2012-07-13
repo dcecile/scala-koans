@@ -13,12 +13,10 @@ object Master extends Stopper {
     val testName: String
   }
 
-  def studentFailed(event: Event): String = {
+
+  def studentFailed (event: HasTestNameAndSuiteName): String = {
     studentNeedsToMeditate = true
-    event match {
-      case e: HasTestNameAndSuiteName => meditationMessage(e)
-      case _ => ""
-    }
+    meditationMessage(event)
   }
 
   private def meditationMessage(event: HasTestNameAndSuiteName) = {
