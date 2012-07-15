@@ -11,7 +11,8 @@ class AboutEmptyValues extends KoanSuite {
 
   test("None should be identical to None") {
     val a = None
-    assert(a eq __) // note that eq denotes identity, and == denotes equality in Scala
+    val b = None
+    assert(a eq __)
   }
 
   test("None can be converted to a String") {
