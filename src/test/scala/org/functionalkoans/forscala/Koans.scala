@@ -7,7 +7,8 @@ class Koans extends Suite {
   override def nestedSuites = List(
     new AboutAsserts,
     new AboutValAndVar,
-    new AboutConstructors,
+    new AboutClasses,
+    new AboutRange,
     new AboutTuples,
     new AboutLists,
     new AboutMaps,
@@ -27,7 +28,6 @@ class Koans extends Suite {
     new AboutPreconditions,
     new AboutHigherOrderFunctions,
     new AboutUniformAccessPrinciple,
-    new AboutPatternMatching,
     new AboutLiteralBooleans,
     new AboutLiteralNumbers,
     new AboutLiteralStrings,
@@ -38,7 +38,8 @@ class Koans extends Suite {
     new AboutImplicits,
     new AboutManifests,
     new AboutTypeVariance,
-    new AboutEnumerations
+    new AboutEnumerations,
+    new AboutConstructors
     
   )
 
