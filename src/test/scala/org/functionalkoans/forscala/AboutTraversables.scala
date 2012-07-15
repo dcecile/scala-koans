@@ -7,6 +7,7 @@ import collection.immutable.TreeSet
 
 class AboutTraversables extends KoanSuite with ShouldMatchers {
 
+
   koan( """Traverables are the superclass of Lists, Arrays, Maps, Sets, Streams, and more.
           |   The methods involved can be applied to each other in a different type.  ++ appends
           |   two Traversables together.""") {
@@ -86,7 +87,10 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   koan( """toList will convert any Traversable to a List.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toList
-    result.isInstanceOf[List[Int]] should be(__)
+
+    // remove the assert(false) uncomment the following line and adjust to satisfy this koan
+    assert(false)
+    //result.isInstanceOf[List[Int]] should be(true)
   }
 
   koan( """toList, as well as other conversion methods like toSet, toArray,
@@ -264,14 +268,18 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  is no longer satisfied.  In this koan, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
     val treeSet = TreeSet(87, 44, 5, 4, 200, 10, 39, 100)
-    treeSet.takeWhile(_ < 100) should be(TreeSet(__, __, __, __, __, __))
+    // remove the "assert(false)" and uncomment the "should be ..." and complete it to finish this koan
+    assert(false == true)
+    treeSet.takeWhile(_ < 100) // should be(TreeSet(__, __, __, __, __, __))
   }
 
   koan( """dropWhile will continually drop elements until a predicate
           |  is no longer satisfied.  Again, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
     val treeSet = TreeSet(87, 44, 5, 4, 200, 10, 39, 100)
-    treeSet.dropWhile(_ < 100) should be(TreeSet(__, __))
+    // remove the "assert(false)" and uncomment the "should be ... " and complete it to finish this koan
+     assert(false)
+    treeSet.dropWhile(_ < 100) // should be(TreeSet(__, __))
   }
 
   koan( """filter will take out all elements that don't satisfy a predicate. An
