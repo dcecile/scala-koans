@@ -4,27 +4,27 @@ import support.KoanSuite
 
 class AboutTraits extends KoanSuite {
   koan("A class uses the extends keyword to mixin a trait if it is the only relationship the class inherits") {
-    case class Event(name: String, source: Any)
+    case class Event(name: String)
     trait EventListener {
       def listen(event: Event): Unit
     }
     class MyListener extends EventListener {
       def listen(event: Event) {
         event match {
-          case Event("Moose Stampede", _) => println("An unfortunate moose stampede occured")
+          case Event("Moose Stampede") => println("An unfortunate moose stampede occured")
           case _ => println("Nothing of importance occured")
         }
       }
     }
 
-    val evt = Event("Moose Stampede", this)
-    val myListener = new MyListener()
+    val evt = Event("Moose Stampede")
+    val myListener = new MyListener
     myListener.listen(evt)
   }
 
   koan("A class can only \'extend\' from one class or trait, any subsequent extension should use the keyword \'with\'") {
 
-    case class Event(name: String, source: Any)
+    case class Event(name: String)
 
     trait EventListener {
       def listen(event: Event): Unit
@@ -35,33 +35,33 @@ class AboutTraits extends KoanSuite {
     class MyListener extends OurListener with EventListener {
       def listen(event: Event) {
         event match {
-          case Event("Woodchuck Stampede", _) => println("An unfortunate woodchuck stampede occured")
+          case Event("Woodchuck Stampede") => println("An unfortunate woodchuck stampede occured")
           case _ => println("Nothing of importance occured")
         }
       }
     }
 
-    val evt = Event("Woodchuck Stampede", this)
-    val myListener = new MyListener()
+    val evt = Event("Woodchuck Stampede")
+    val myListener = new MyListener
     myListener.listen(evt)
   }
 
   koan("Traits are polymorphic. Any type can be referred to by another type if related by extension") {
-    case class Event(name: String, source: Any)
+    case class Event(name: String)
     trait EventListener {
       def listen(event: Event): Unit
     }
     class MyListener extends EventListener {
       def listen(event: Event) {
         event match {
-          case Event("Moose Stampede", _) => println("An unfortunate moose stampede occured")
+          case Event("Moose Stampede") => println("An unfortunate moose stampede occured")
           case _ => println("Nothing of importance occured")
         }
       }
     }
 
-    val evt = Event("Moose Stampede", this)
-    val myListener = new MyListener()
+    val evt = Event("Moose Stampede")
+    val myListener = new MyListener
 
     myListener.isInstanceOf[MyListener] should be(__)
     myListener.isInstanceOf[EventListener] should be(__)
