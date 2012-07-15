@@ -3,7 +3,6 @@ package org.functionalkoans.forscala
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
 import Stream._
-import collection.immutable.TreeSet
 
 class AboutTraversables extends KoanSuite with ShouldMatchers {
 
@@ -88,9 +87,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toList
 
-    // remove the assert(false) uncomment the following line and adjust to satisfy this koan
-    assert(false)
-    //result.isInstanceOf[List[Int]] should be(true)
+    result.isInstanceOf[List[_]] should be(__)
   }
 
   koan( """toList, as well as other conversion methods like toSet, toArray,
@@ -107,7 +104,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toIterable
-    result.isInstanceOf[Iterable[Int]] should be(__)
+    result.isInstanceOf[Iterable[_]] should be(__)
   }
 
   koan( """toSeq will convert any Traversable to a Seq which is an ordered Iterable
@@ -116,7 +113,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  length of a sequence.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toSeq
-    result.isInstanceOf[Seq[Int]] should be(__)
+    result.isInstanceOf[Seq[_]] should be(__)
   }
 
   koan( """toIndexedSeq will convert any Traversable to an IndexedSeq which is
@@ -124,7 +121,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  Vectors and Strings""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toIndexedSeq
-    result.isInstanceOf[IndexedSeq[Int]] should be(__)
+    result.isInstanceOf[IndexedSeq[_]] should be(__)
   }
 
   koan( """toStream will convert any Traversable to an Stream which is
@@ -132,7 +129,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  are needed.""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toStream
-    result.isInstanceOf[Stream[Int]] should be(__)
+    result.isInstanceOf[Stream[_]] should be(__)
     (result take 3) should be(List(__, __, __))
   }
 
@@ -140,7 +137,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  which is a collection of unordered, unique values""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toSet
-    result.isInstanceOf[Set[Int]] should be(__)
+    result.isInstanceOf[Set[_]] should be(__)
   }
 
   koan( """toMap will convert any Traversable to a Map.  How it's
@@ -148,14 +145,14 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | it should be of parameterized type Tuple2.""") {
     val list = List(("Phoenix" -> "Arizona"), ("Austin" -> "Texas"))
     val result = list.toMap
-    result.isInstanceOf[Map[String, String]] should be(__)
+    result.isInstanceOf[Map[_, _]] should be(__)
   }
 
   koan( """toMap will convert a Set to a Map,
           | it should be of parameterized type Tuple2.""") {
     val set = Set(("Phoenix" -> "Arizona"), ("Austin" -> "Texas"))
     val result = set.toMap
-    result.isInstanceOf[Map[String, String]] should be(__)
+    result.isInstanceOf[Map[_, _]] should be(__)
   }
 
   koan( """isEmpty is pretty self evident""") {
@@ -267,19 +264,15 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   koan( """takeWhile will continually accumulate elements until a predicate
           |  is no longer satisfied.  In this koan, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
-    val treeSet = TreeSet(87, 44, 5, 4, 200, 10, 39, 100)
-    // remove the "assert(false)" and uncomment the "should be ..." and complete it to finish this koan
-    assert(false == true)
-    treeSet.takeWhile(_ < 100) // should be(TreeSet(__, __, __, __, __, __))
+    val list = List(87, 44, 5, 4, 200, 10, 39, 100)
+    list.takeWhile(_ < 100) should be(List(__, __, __, __, __, __))
   }
 
   koan( """dropWhile will continually drop elements until a predicate
           |  is no longer satisfied.  Again, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
-    val treeSet = TreeSet(87, 44, 5, 4, 200, 10, 39, 100)
-    // remove the "assert(false)" and uncomment the "should be ... " and complete it to finish this koan
-     assert(false)
-    treeSet.dropWhile(_ < 100) // should be(TreeSet(__, __))
+    val list = List(87, 44, 5, 4, 200, 10, 39, 100)
+    list.dropWhile(_ < 100) should be(List(__, __))
   }
 
   koan( """filter will take out all elements that don't satisfy a predicate. An
@@ -350,10 +343,10 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
     val result = array groupBy {
       oddAndSmallPartial orElse
-              evenAndSmallPartial orElse
-              negativePartial orElse
-              largePartial orElse
-              zeroPartial
+        evenAndSmallPartial orElse
+        negativePartial orElse
+        largePartial orElse
+        zeroPartial
     }
 
     (result("Even and less than 100") size) should be(__)
@@ -371,7 +364,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | is valid for some members of a Traversable.""") {
     val list = List(87, 44, 5, 4, 200, 10, 39, 100)
     val result = list exists (_ < 100)
-    result should be(true)
+    result should be(__)
   }
 
   koan( """`count` will count the number of elements that satisfy a predicate
@@ -530,7 +523,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     lst.map {
       x => addHistory("Doubling %s".format(x)); x * 2
     }
-            .map {
+      .map {
       x => addHistory("Adding 1 to %s".format(x)); x + 1
     }
 
@@ -546,7 +539,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     lst.view.map {
       x => addHistory("Doubling %s".format(x)); x * 2
     }
-            .map {
+      .map {
       x => addHistory("Adding 1 to %s".format(x)); x + 1
     }.force
 
