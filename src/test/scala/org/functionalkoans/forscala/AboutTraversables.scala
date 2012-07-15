@@ -3,7 +3,6 @@ package org.functionalkoans.forscala
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
 import Stream._
-import collection.immutable.TreeSet
 
 class AboutTraversables extends KoanSuite with ShouldMatchers {
 
@@ -88,7 +87,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toList
 
-    result.isInstanceOf[List[_]] should be(true)
+    result.isInstanceOf[List[_]] should be(__)
   }
 
   koan( """toList, as well as other conversion methods like toSet, toArray,
@@ -344,10 +343,10 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
     val result = array groupBy {
       oddAndSmallPartial orElse
-              evenAndSmallPartial orElse
-              negativePartial orElse
-              largePartial orElse
-              zeroPartial
+        evenAndSmallPartial orElse
+        negativePartial orElse
+        largePartial orElse
+        zeroPartial
     }
 
     (result("Even and less than 100") size) should be(__)
@@ -365,7 +364,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | is valid for some members of a Traversable.""") {
     val list = List(87, 44, 5, 4, 200, 10, 39, 100)
     val result = list exists (_ < 100)
-    result should be(true)
+    result should be(__)
   }
 
   koan( """`count` will count the number of elements that satisfy a predicate
@@ -524,7 +523,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     lst.map {
       x => addHistory("Doubling %s".format(x)); x * 2
     }
-            .map {
+      .map {
       x => addHistory("Adding 1 to %s".format(x)); x + 1
     }
 
@@ -540,7 +539,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     lst.view.map {
       x => addHistory("Doubling %s".format(x)); x * 2
     }
-            .map {
+      .map {
       x => addHistory("Adding 1 to %s".format(x)); x + 1
     }.force
 
