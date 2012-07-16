@@ -27,7 +27,6 @@ class AboutSets extends KoanSuite {
     mySet.contains(12) should be(__)
 
     mySet.contains("MI") should be(__)
-
   }
 
   koan("Sets may be accessed") {
@@ -62,6 +61,7 @@ class AboutSets extends KoanSuite {
     aNewSet.contains("Wisconsin") should be(__)
     aNewSet.size should be(__)
   }
+
   koan("Attempted removal of nonexistent elements from a set is handled gracefully") {
     val mySet = Set("Michigan", "Ohio", "Wisconsin", "Iowa")
     val aNewSet = mySet - "Minnesota"
