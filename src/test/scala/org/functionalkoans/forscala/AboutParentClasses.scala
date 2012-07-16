@@ -42,7 +42,7 @@ class AboutParentClasses extends KoanSuite {
                    val employeeID: Long) extends Worker(firstName, lastName)
 
     val employee = new Employee("Name", "Yourself", 2291)
-    val assignment = new employee.type#Assignment(22)  //using the employee instance's path, create an assignment for it.
+    val assignment = new employee.Assignment(22)  //using the employee instance's path, create an assignment for it.
     assignment.hours should be (__)
   }
 }
