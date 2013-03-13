@@ -1,4 +1,6 @@
-name := "Scala Koans" 
+addCommandAlias("namaste", "~test-only org.functionalkoans.forscala.Koans")
+
+name := "Scala Koans"
 
 version := "1.0"
 
@@ -29,6 +31,3 @@ retrieveManaged := true
 libraryDependencies ++= Seq(
 	"org.scalatest" %% "scalatest" % "1.8" % "test" withSources() withJavadoc()
 )
-
-// add a sequence of maven-style repositories
-//resolvers ++= Seq("Name" at "URL")
