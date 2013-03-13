@@ -16,3 +16,5 @@ scala-koans.iws
 .cache
 .idea_modules
 .idea
+sbtboot
+ivyrepo
