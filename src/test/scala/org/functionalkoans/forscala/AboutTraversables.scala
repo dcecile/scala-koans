@@ -2,6 +2,7 @@ package org.functionalkoans.forscala
 
 import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
+import language.postfixOps
 import Stream._
 
 class AboutTraversables extends KoanSuite with ShouldMatchers {
@@ -59,10 +60,10 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  a more robust result.""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val partialFunction1: PartialFunction[Int, Int] = {
-      case x: Int if (x % 2 == 0) => x * 3
+      case x: Int if x % 2 == 0 => x * 3
     }
     val partialFunction2: PartialFunction[Int, Int] = {
-      case y: Int if (y % 2 != 0) => y * 4
+      case y: Int if y % 2 != 0 => y * 4
     }
     val result = list.collect(partialFunction1 orElse partialFunction2)
     result should be(List(__, __, __, __, __, __, __))
@@ -94,7 +95,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  will not convert if the collection type is the same.""") {
     val list = List(5, 6, 7, 8, 9)
     val result = list.toList
-    (result eq list) should be(__) //Reminder: eq tests for reference equality
+    result eq list should be(__) //Reminder: eq tests for reference equality
   }
 
   koan( """toIterable will convert any Traversable to an Iterable. This is a base
@@ -143,14 +144,14 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   koan( """toMap will convert any Traversable to a Map.  How it's
           | used, depends on the original collection, if it's a List or Seq,
           | it should be of parameterized type Tuple2.""") {
-    val list = List(("Phoenix" -> "Arizona"), ("Austin" -> "Texas"))
+    val list = List("Phoenix" -> "Arizona", "Austin" -> "Texas")
     val result = list.toMap
     result.isInstanceOf[Map[_, _]] should be(__)
   }
 
   koan( """toMap will convert a Set to a Map,
           | it should be of parameterized type Tuple2.""") {
-    val set = Set(("Phoenix" -> "Arizona"), ("Austin" -> "Texas"))
+    val set = Set("Phoenix" -> "Arizona", "Austin" -> "Texas")
     val result = set.toMap
     result.isInstanceOf[Map[_, _]] should be(__)
   }
@@ -322,27 +323,27 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     val array = Array(87, 44, 5, 4, 200, 10, 39, 100)
 
     val oddAndSmallPartial: PartialFunction[Int, String] = {
-      case x: Int if (x % 2 != 0 && x < 100) => "Odd and less than 100"
+      case x: Int if x % 2 != 0 && x < 100 => "Odd and less than 100"
     }
 
     val evenAndSmallPartial: PartialFunction[Int, String] = {
-      case x: Int if (x != 0 && x % 2 == 0 && x < 100) => "Even and less than 100"
+      case x: Int if x != 0 && x % 2 == 0 && x < 100 => "Even and less than 100"
     }
 
     val negativePartial: PartialFunction[Int, String] = {
-      case x: Int if (x < 0) => "Negative Number"
+      case x: Int if x < 0 => "Negative Number"
     }
 
     val largePartial: PartialFunction[Int, String] = {
-      case x: Int if (x > 99) => "Large Number"
+      case x: Int if x > 99 => "Large Number"
     }
 
     val zeroPartial: PartialFunction[Int, String] = {
-      case x: Int if (x == 0) => "Zero"
+      case x: Int if x == 0 => "Zero"
     }
 
     val result = array groupBy {
-      oddAndSmallPartial orElse
+        oddAndSmallPartial orElse
         evenAndSmallPartial orElse
         negativePartial orElse
         largePartial orElse
@@ -360,7 +361,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     result should be(__)
   }
 
-  koan( """`exists` should've been called `forsome`. `exists` will determine if a predicate
+  koan( """`exists` will determine if a predicate
           | is valid for some members of a Traversable.""") {
     val list = List(87, 44, 5, 4, 200, 10, 39, 100)
     val result = list exists (_ < 100)
@@ -464,22 +465,22 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   }
 
   koan( """You would choose foldLeft/reduceLeft or foldRight/reduceRight based on your mathematical goal.
-          | One other reason for deciding is performance.  foldLeft is more perfomant since it uses
-          | tail recursion and is optimized. This koan will either work or you will receieve a
+          | One other reason for deciding is performance.  foldLeft is more performant since it uses
+          | tail recursion and is optimized. This koan will either work or you will receive a
           | StackOverflowError. If you do receive a StackOverflowError, try reducing the MAX_SIZE value.""") {
 
     val MAX_SIZE = 1000000
     val reduceLeftStartTime = new java.util.Date
-    ((1 to MAX_SIZE) reduceLeft (_ + _))
+    (1 to MAX_SIZE) reduceLeft (_ + _)
     val reduceLeftEndTime = new java.util.Date
 
 
     val reduceRightStartTime = new java.util.Date
-    ((1 to MAX_SIZE) reduceRight (_ + _))
+    (1 to MAX_SIZE) reduceRight (_ + _)
     val reduceRightEndTime = new java.util.Date
 
-    val totalReduceLeftTime = (reduceLeftEndTime.getTime - reduceLeftStartTime.getTime)
-    val totalReduceRightTime = (reduceRightEndTime.getTime - reduceRightStartTime.getTime)
+    val totalReduceLeftTime = reduceLeftEndTime.getTime - reduceLeftStartTime.getTime
+    val totalReduceRightTime = reduceRightEndTime.getTime - reduceRightStartTime.getTime
 
     (totalReduceRightTime > totalReduceLeftTime) should be(__)
   }
@@ -520,12 +521,8 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
       history = history :+ s
     }
 
-    lst.map {
-      x => addHistory("Doubling %s".format(x)); x * 2
-    }
-      .map {
-      x => addHistory("Adding 1 to %s".format(x)); x + 1
-    }
+    lst.map { x => addHistory("Doubling %s".format(x)); x * 2}.map
+            { x => addHistory("Adding 1 to %s".format(x)); x + 1}
 
     history(0) should be(__)
     history(1) should be(__)
@@ -536,12 +533,8 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
     history = List[String]()
 
-    lst.view.map {
-      x => addHistory("Doubling %s".format(x)); x * 2
-    }
-      .map {
-      x => addHistory("Adding 1 to %s".format(x)); x + 1
-    }.force
+    lst.view.map { x => addHistory("Doubling %s".format(x)); x * 2}.map {
+                   x => addHistory("Adding 1 to %s".format(x)); x + 1}.force
 
     history(0) should be(__)
     history(1) should be(__)
