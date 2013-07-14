@@ -5,11 +5,31 @@ import support.KoanSuite
 class AboutHigherOrderFunctions extends KoanSuite {
 
   koan("Meet lambda. Anonymous function") {
-    def lambda = {
-      x: Int => x + 1
+    def lambda = { x: Int => x + 1 }
+    def lambda2 = (x:Int) => x + 1
+    val lambda3 = (x:Int) => x + 1
+
+    val lambda4 = new Function1[Int, Int] {
+      def apply(v1: Int): Int = v1 + 1
     }
+
+    def lambda5(x:Int) = x + 1
+
+
     val result = lambda(3)
+    val `result1andhalf` = lambda.apply(3)
+
+    val result2 = lambda2(3)
+    val result3 = lambda3(3)
+    val result4 = lambda4(3)
+    val result5 = lambda5(3)
+
     result should be(__)
+    result1andhalf should be(__)
+    result2 should be(__)
+    result3 should be(__)
+    result4 should be(__)
+    result5 should be(__)
   }
 
   koan("An anonymous function can also take on a different look by taking out the brackets") {
@@ -20,6 +40,7 @@ class AboutHigherOrderFunctions extends KoanSuite {
 
   koan("Meet closure. Closure is any function that closes over the environment") {
     var incrementer = 1
+
     def closure = {
       x: Int => x + incrementer
     }
@@ -54,14 +75,17 @@ class AboutHigherOrderFunctions extends KoanSuite {
         def apply(y: Int): Int = x + y
       }
     }
-    addWithoutSyntaxSugar(1).isInstanceOf[Function1[Int,Int]] should be(__)
+    addWithoutSyntaxSugar(1).
+      isInstanceOf[Function1[Int,Int]] should be(__)
+
     addWithoutSyntaxSugar(2)(3) should be(__)
 
     def fiveAdder = addWithoutSyntaxSugar(5)
     fiveAdder(5) should be(__)
   }
 
-  koan("function returning another function using an anonymous function") {
+  koan("function returning another function " +
+    "using an anonymous function") {
     def addWithSyntaxSugar(x: Int) = (y:Int) => x + y
 
     addWithSyntaxSugar(1).isInstanceOf[Function1[Int,Int]] should be(__)
@@ -78,7 +102,7 @@ class AboutHigherOrderFunctions extends KoanSuite {
       | at runtime.""") {
     def addWithSyntaxSugar(x: Int) = (y:Int) => x + y
 
-    addWithSyntaxSugar(1).isInstanceOf[Function1[_,_]] should be(__)
+    addWithSyntaxSugar(1).isInstanceOf[Function1[Int, Int]] should be(__)
   }
 
 
