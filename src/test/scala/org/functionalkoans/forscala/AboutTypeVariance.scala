@@ -27,7 +27,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val fruitBasket = new MyContainer(new Orange())
@@ -45,7 +45,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val fruitBasket = new MyContainer[Fruit](new Orange())
@@ -62,7 +62,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val fruitBasket: MyContainer[Fruit] = new MyContainer(new Orange())
@@ -84,7 +84,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     // Uncomment the following line
@@ -101,7 +101,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
 
       def get = item
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val fruitBasket: MyContainer[Fruit] = new MyContainer[Orange](new Orange())
@@ -119,7 +119,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
 
       def get = item
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val fruitBasket: MyContainer[Fruit] = new MyContainer[Orange](new Orange())
@@ -144,7 +144,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val citrusBasket: MyContainer[Citrus] = new MyContainer[Citrus](new Orange)
@@ -173,7 +173,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
         item = a
       }
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val citrusBasket: MyContainer[Citrus] = new MyContainer[Citrus](new Orange)
@@ -200,7 +200,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
 
       def get = item
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val citrusBasket: MyContainer[Citrus] = new MyContainer[Citrus](new Orange)
@@ -219,7 +219,7 @@ class AboutTypeVariance extends KoanSuite with ShouldMatchers {
 
       def get = item
 
-      def contents = manifest.erasure.getSimpleName
+      def contents = manifest.runtimeClass.getSimpleName
     }
 
     val citrusBasket: MyContainer[Citrus] = new MyContainer[Citrus](new Orange)
