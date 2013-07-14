@@ -7,7 +7,7 @@ import org.scalatest.events.{TestPending, TestFailed, TestIgnored, Event}
 
 trait KoanSuite extends FunSuite with ShouldMatchers {
 
-  def koan(name : String)(fun: => Unit) { test(name)(fun) }
+  def koan(name : String)(fun: => Unit) { test(name.stripMargin('|'))(fun) }
 
   def meditate() = pending
 
