@@ -4,7 +4,7 @@ name := "Scala Koans"
 
 version := "1.0"
 
-scalaVersion := "2.9.2"
+scalaVersion := "2.10.2"
 
 traceLevel := -1
 
@@ -17,17 +17,11 @@ showTiming := false
 showSuccess := false
 
 // append -deprecation to the options passed to the Scala compiler
-scalacOptions ++= Seq("-deprecation", "-unchecked")
+scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
 
 // disable updating dynamic revisions (including -SNAPSHOT versions)
 offline := true
 
-// Copy all managed dependencies to <build-root>/lib_managed/
-//   This is essentially a project-local cache and is different
-//   from the lib_managed/ in sbt 0.7.x.  There is only one
-//   lib_managed/ in the build root (not per-project).
-retrieveManaged := true
-
 libraryDependencies ++= Seq(
-	"org.scalatest" %% "scalatest" % "1.8" % "test" withSources() withJavadoc()
+	"org.scalatest" %% "scalatest" % "1.9.1" % "test" withSources() withJavadoc()
 )
