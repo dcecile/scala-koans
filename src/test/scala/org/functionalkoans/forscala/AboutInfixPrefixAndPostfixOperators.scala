@@ -1,6 +1,7 @@
 package org.functionalkoans.forscala
 
 import support.KoanSuite
+import language.postfixOps
 import org.scalatest.matchers.ShouldMatchers
 
 class AboutInfixPrefixAndPostfixOperators extends KoanSuite with ShouldMatchers {
@@ -10,7 +11,7 @@ class AboutInfixPrefixAndPostfixOperators extends KoanSuite with ShouldMatchers 
 
     val g: Int = 3
     (g + 4) should be(__) // + is an infix operator
-    (g.+(4)) should be(__) // same result but not using the infix operator
+     g.+(4) should be(__) // same result but not using the infix operator
   }
 
   koan("""Infix Operators do NOT work if an object
@@ -49,5 +50,4 @@ class AboutInfixPrefixAndPostfixOperators extends KoanSuite with ShouldMatchers 
     (+stereo) should be(__)
     (-stereo) should be(__)
   }
-
 }
