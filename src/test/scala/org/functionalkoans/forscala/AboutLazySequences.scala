@@ -10,7 +10,8 @@ class AboutLazySequences extends KoanSuite {
     lazyList.head should be(__)
   }
 
-  koan("Strict collection always processes its elements but lazy collection does it on demand") {
+  koan("Strict collection always processes its elements but " +
+       "lazy collection does it on demand") {
     var x = 0
     def inc = {x += 1; x}
 
