@@ -126,7 +126,8 @@ class AboutExtractors extends KoanSuite {
 
      val singri = new Employee("Singri", None, "Keerthi")
 
-     val (a,b,c) = singri
+     val Employee(a,b,c) = singri
+     
      a should be (__)
      b should be (__)
      c should be (__)
