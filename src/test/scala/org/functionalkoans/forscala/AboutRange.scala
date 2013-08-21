@@ -16,7 +16,7 @@ class AboutRange extends KoanSuite {
     someNumbers.size should be(__)
   }
 
-  koan("Range doe not include the last item, even in a step increment") {
+  koan("Range does not include the last item, even in a step increment") {
     val someNumbers = Range(0, 34, 2)
     someNumbers.contains(33) should be(__)
     someNumbers.contains(32) should be(__)
