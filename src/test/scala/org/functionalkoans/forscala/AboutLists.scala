@@ -9,9 +9,13 @@ class AboutLists extends KoanSuite {
     val b: List[Int] = Nil
 
     (a == Nil) should be(__)
+    (a eq Nil) should be(__)
+
     (b == Nil) should be(__)
+    (b eq Nil) should be(__)
+
     (a == b) should be(__)
-    
+    (a eq b) should be(__)
   }
 
   koan("Lists are easily created") {

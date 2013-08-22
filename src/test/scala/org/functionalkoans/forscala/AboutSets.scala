@@ -29,7 +29,7 @@ class AboutSets extends KoanSuite {
     mySet.contains("MI") should be(__)
   }
 
-  koan("Sets may be accessed") {
+  koan("Sets can be checked for member existence") {
     val mySet = Set("Michigan", "Ohio", 12)
 
     mySet(12) should be(__)
