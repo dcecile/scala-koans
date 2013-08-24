@@ -45,7 +45,7 @@ class AboutLists extends KoanSuite {
     a.tail should equal(List(__, __))
   }
 
-  koan("Lists can accessed at random") {
+  koan("Lists can accessed by position") {
     val a = List(1, 3, 5, 7, 9)
     a(0) should equal(__)
     a(2) should equal(__)
@@ -79,7 +79,7 @@ class AboutLists extends KoanSuite {
     // map a function to double the numbers over the list
     a.map {v => v * 2} should equal(List(__, __, __, __, __))
 
-    // filter any values divisible by 3 in the list
+    // filter any values not divisible by 3 in the list
     a.filter {v => v % 3 == 0} should equal(List(__, __))
   }
 
