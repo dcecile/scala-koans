@@ -13,11 +13,8 @@ class Koans extends Suite {
     new AboutTuples,
     new AboutLists,
     new AboutMaps,
-    new AboutSets,
     new AboutOptions,
-    new AboutMutableMaps,
-    new AboutMutableSets,
-    new AboutFormatting,
+
     new AboutPatternMatching,
     new AboutCaseClasses,
 
@@ -39,6 +36,12 @@ class Koans extends Suite {
     new AboutNamedAndDefaultArguments,
     new AboutManifests,
     new AboutPreconditions,
+	
+	//becky moved these here
+	new AboutSets,
+    new AboutMutableMaps,
+    new AboutMutableSets,
+    new AboutFormatting,
 
     //move this later type variance and signatures on slides and REPL
 

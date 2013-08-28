@@ -12,6 +12,9 @@ class AboutOptions extends KoanSuite {
     nullValue should be(__)
   }
 
+  def maybeItWillReturnSomething(flag: Boolean): Option[String] = {
+    if (flag) Some("Found value") else None
+  }  
 
   koan("Represent null with None because null is a bad idea") {
     val value1 = maybeItWillReturnSomething(true)
@@ -115,7 +118,4 @@ class AboutOptions extends KoanSuite {
     newValues should be(List(__, __, __))
   }
 
-  def maybeItWillReturnSomething(flag: Boolean): Option[String] = {
-    if (flag) Some("Found value") else None
-  }
 }
