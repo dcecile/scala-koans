@@ -4,6 +4,18 @@ import support.KoanSuite
 
 class AboutLists extends KoanSuite {
 
+  koan("Eq tests identity (same object)") {
+    val a = List(1, 2, 3)
+    val b = List(1, 2, 3)
+    (a eq b) should be(__)
+  }
+
+  koan("== tests equality (same content)") {
+    val a = List(1, 2, 3)
+    val b = List(1, 2, 3)
+    (a == b) should be(__)
+  }
+
   koan("Nil lists are identical, even of different types") {
     val a: List[String] = Nil
     val b: List[Int] = Nil
@@ -21,22 +33,6 @@ class AboutLists extends KoanSuite {
   koan("Lists are easily created") {
     val a = List(1, 2, 3)
     a should equal(List(__, __, __))
-  }
-
-  koan("Eq tests identity (same object)") {
-    val a = List(1, 2, 3)
-    val b = List(1, 2, 3)
-
-
-    (a eq b) should be(__)
-  }
-
-  koan("== tests equality (same content)") {
-    val a = List(1, 2, 3)
-    val b = List(1, 2, 3)
-
-    (a == b) should be(__)
-
   }
 
   koan("Lists can be accessed via head and tail") {
