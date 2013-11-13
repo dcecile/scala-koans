@@ -73,8 +73,9 @@ class AboutNamedAndDefaultArguments() extends KoanSuite {
 
     myColor should equal(__, __, __)
   }
+
   koan("default parameters can be functional too") {
-    def reduce(a: Int, f: (Int, Int) => Int = (_ + _)): Int = f(a, a)
+    def reduce(a: Int, f: (Int, Int) => Int = _ + _): Int = f(a, a)
 
     reduce(5) should equal(__)
     reduce(5, _ * _) should equal(__)
