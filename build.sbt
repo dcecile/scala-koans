@@ -10,8 +10,6 @@ traceLevel := -1
 
 logLevel := Level.Info
 
-logLevel in Compile := Level.Info
-
 // disable printing timing information, but still print [success]
 showTiming := false
 
