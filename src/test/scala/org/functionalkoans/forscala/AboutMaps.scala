@@ -12,8 +12,6 @@ class AboutMaps extends KoanSuite {
   koan("Maps contain distinct pairings") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "MI" -> "Michigan")
     myMap.size should be(__)
-
-
   }
 
   koan("Maps can be added to easily") {
@@ -66,9 +64,7 @@ class AboutMaps extends KoanSuite {
 
     myMap("Houghton") should be(__)
     myMap("Ann Arbor") should be((__, __, __))
-
     // what happens if you change the Any to Int
-
   }
 
 
@@ -97,8 +93,6 @@ class AboutMaps extends KoanSuite {
 
   koan("Map elements can be removed in multiple") {
     val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
-
-
     val aNewMap = myMap -- List("MI", "OH")
 
     aNewMap.contains("MI") should be(__)
@@ -130,6 +124,4 @@ class AboutMaps extends KoanSuite {
 
     myMap1.equals(myMap2) should be(__)
   }
-
-
 }
