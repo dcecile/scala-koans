@@ -9,7 +9,6 @@ case class Board(length: Int, height: Int) {
   val occupied = scala.collection.mutable.Set[Coordinate]()
 }
 
-
 class AboutPathDependentTypes extends KoanSuite {
   koan(
     """When a class is instantiated inside of another object, it belongs to the object.  This is a path
