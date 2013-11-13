@@ -2,8 +2,10 @@ package org.functionalkoans.forscala
 
 import org.functionalkoans.forscala.support.KoanSuite
 
+
 class AboutExtractors extends KoanSuite {
-   koan("When you create a case class, it automatically can be used with pattern matching since it has an extractor") {
+   koan("When you create a case class, it automatically can be used with " +
+     "pattern matching since it has an extractor") {
      case class Employee(firstName:String, lastName:String)
 
      val rob = new Employee("Robin", "Williams")
@@ -72,7 +74,8 @@ class AboutExtractors extends KoanSuite {
     x._2 should be (__)
   }
 
-  koan("As long as the method signatures aren't the same, you can have an many unapply methods as you want") {
+  koan("As long as the method signatures aren't the same, " +
+       "you can have an many unapply methods as you want") {
     class Car(val make:String, val model:String, val year:Short, val topSpeed:Short)
     class Employee(val firstName:String, val middleName: Option[String], val lastName: String)
 
@@ -135,9 +138,9 @@ class AboutExtractors extends KoanSuite {
 
   koan("In this koan we use the unapply for pattern matching employee objects") {
 
-    class Employee(val firstName:String,
-                   val middleName:Option[String],
-                   val lastName:String)
+    case class Employee(firstName:String,
+                        middleName:Option[String],
+                        lastName:String)
 
     object Employee {
       //factory methods, extractors, apply
@@ -148,12 +151,12 @@ class AboutExtractors extends KoanSuite {
 
     val singri = new Employee("Singri", None, "Keerthi")
 
-    singri match {
+    val result = singri match {
       case Employee("Singri", None, x) => "Yay, Singri %s! with no middle name!".format(x)
       case Employee("Singri", Some(x), _) => "Yay, Singri with a middle name of %s".format(x)
       case _ => "I don't care, going on break"
     }
 
-    singri should be (__)
+    result should be (__)
   }
 }
