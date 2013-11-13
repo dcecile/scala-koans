@@ -8,7 +8,7 @@ class Monkey
 class AboutManifests extends KoanSuite with ShouldMatchers {
   koan("""Manifests can be used to determine a type used
          |   before it erased by the VM by using an implicit manifest argument.""") {
-    def inspect[T](l: List[T])(implicit manifest: scala.reflect.Manifest[T]) = manifest.toString
+    def inspect[T](l: List[T])(implicit manifest: scala.reflect.Manifest[T]) = manifest.toString()
     val list = 1 :: 2 :: 3 :: 4 :: 5 :: Nil
     inspect(list) should be(__)
   }
