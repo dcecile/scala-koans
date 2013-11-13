@@ -73,7 +73,7 @@ class AboutSets extends KoanSuite {
     val mySet = Set(1, 3, 4, 9)
     var sum = 0
     for (i <- mySet)
-      sum = sum + i
+      sum = sum + i  //Of course this is the same thing as mySet.reduce(_ + _)
 
     sum should be(__)
   }
