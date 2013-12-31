@@ -266,14 +266,14 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  is no longer satisfied.  In this koan, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
     val list = List(87, 44, 5, 4, 200, 10, 39, 100)
-    list.takeWhile(_ < 100) should be(List(__, __, __, __, __, __))
+    list.takeWhile(_ < 100) should be(List(__, __, __, __))
   }
 
   koan( """dropWhile will continually drop elements until a predicate
           |  is no longer satisfied.  Again, TreeSet is Traversable.
           |  TreeSet also is also sorted.""") {
     val list = List(87, 44, 5, 4, 200, 10, 39, 100)
-    list.dropWhile(_ < 100) should be(List(__, __))
+    list.dropWhile(_ < 100) should be(List(__, __, __, __))
   }
 
   koan( """filter will take out all elements that don't satisfy a predicate. An
