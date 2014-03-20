@@ -64,7 +64,7 @@ class AboutHigherOrderFunctions extends KoanSuite {
     val result = summation(10, closure)
     result should be(__)
 
-    incrementer = 3
+    incrementer = 4
     val result2 = summation(10, closure)
     result2 should be(__)
   }
