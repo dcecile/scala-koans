@@ -14,7 +14,7 @@ object SecretAgent {
 
   private def decrementBullets(count: Int) {
     if (bullets - count <= 0) bullets = 0
-    bullets = bullets - count
+    else bullets = bullets - count
   }
 }
 
