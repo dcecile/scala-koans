@@ -55,7 +55,7 @@ class AboutExtractors extends KoanSuite {
   }
 
   koan(
-    """Since we aren't really using c and d in the previous pattern matching with can replace them with _.""") {
+    """Since we aren't really using u and v in the previous pattern matching with can replace them with _.""") {
     class Car(val make: String, val model: String, val year: Short, val topSpeed: Short)
 
     object ChopShop {
