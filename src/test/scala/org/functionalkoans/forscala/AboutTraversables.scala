@@ -109,7 +109,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   }
 
   koan( """toSeq will convert any Traversable to a Seq which is an ordered Iterable
-          |  and is the superclass to List, Queues, and Vectors.  Sequences provide
+          |  and is the superclass to List, Queues, and Vectors. Sequences provide
           |  a method apply for indexing. Indices range from 0 up the the
           |  length of a sequence.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
@@ -125,8 +125,8 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     result.isInstanceOf[IndexedSeq[_]] should be(__)
   }
 
-  koan( """toStream will convert any Traversable to an Stream which is
-          |  which is a lazy lists where elements are evaluated as they
+  koan( """toStream will convert any Traversable to a Stream which is
+          |  a lazy list where elements are evaluated as they
           |  are needed.""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toStream
@@ -134,15 +134,15 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     (result take 3) should be(List(__, __, __))
   }
 
-  koan( """toSet will convert any Traversable to an Set which is
-          |  which is a collection of unordered, unique values""") {
+  koan( """toSet will convert any Traversable to a Set which is
+          |  a collection of unordered, unique values""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toSet
     result.isInstanceOf[Set[_]] should be(__)
   }
 
-  koan( """toMap will convert any Traversable to a Map.  How it's
-          | used, depends on the original collection, if it's a List or Seq,
+  koan( """toMap will convert any Traversable to a Map. How it's
+          | used depends on the original collection; if it's a List or Seq,
           | it should be of parameterized type Tuple2.""") {
     val list = List("Phoenix" -> "Arizona", "Austin" -> "Texas")
     val result = list.toMap
@@ -219,7 +219,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     list2.lastOption should be(__)
   }
 
-  koan( """find will locate an the first item that matches a predicate p as Some or None if
+  koan( """find will locate the first item that matches a predicate p as Some or None if
           | an element is not found""") {
     val list = List(10, 19, 45, 1, 22)
     list.find(_ % 2 != 0) should be(Some(__))
@@ -302,8 +302,8 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  is also defined as (xs takeWhile p, xs dropWhile p)""") {
     val array = Array(87, 44, 5, 4, 200, 10, 39, 100)
     val result = array span (_ < 100)
-    result._1 should be(Array(87, 44, 5, 4))
-    result._2 should be(Array(200, 10, 39, 100))
+    result._1 should be(Array(__, __, __, __))
+    result._2 should be(Array(__, __, __, __))
   }
 
   koan( """partition will split a Traversable according to predicate, return
@@ -487,7 +487,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
   koan( """`transpose` will take a traversable of traversables and group them by their position in
           |  it's own traversable.  E.g. ((x1, x2),(y1, y2)).transpose = (x1, y1), (x2, y2).
-          |  or ((x1, x2),(y1, y2),(z1, z2)).transpose = ((x1, y1, z1), (x2, y2, z2), (x3, y3, z3))""") {
+          |  or ((x1, x2, x3),(y1, y2, y3),(z1, z2, z3)).transpose = ((x1, y1, z1), (x2, y2, z2), (x3, y3, z3))""") {
     val list = List(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9))
     list.transpose should be(List(List(__, __, __), List(__, __, __), List(__, __, __)))
 
@@ -544,7 +544,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     history(5) should be(__)
   }
 
-  koan( """Views can also accept a `to` and `from` value which takes the substring and performs your view
+  koan( """Views can also accept a `to` and `from` value which takes a subset and performs your view
           |  functions on the subset.""") {
     val list = List(1, 2, 3, 4, 5, 6, 7, 8)
     list.view(3, 6).map(_ + 2).map(_ * 10).force should be(List(__, __, __))
