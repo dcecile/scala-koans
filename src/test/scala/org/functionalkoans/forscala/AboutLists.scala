@@ -41,7 +41,7 @@ class AboutLists extends KoanSuite {
     a.tail should equal(List(__, __))
   }
 
-  koan("Lists can accessed at random") {
+  koan("Lists can accessed by position") {
     val a = List(1, 3, 5, 7, 9)
     a(0) should equal(__)
     a(2) should equal(__)

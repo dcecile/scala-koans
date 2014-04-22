@@ -4,10 +4,6 @@ import support.KoanSuite
 
 class AboutOptions extends KoanSuite {
 
-  def maybeItWillReturnSomething(flag: Boolean): Option[String] = {
-    if (flag) Some("Found value") else None
-  }
-
   koan("Option can have one of two values - Some or None") {
     val someValue: Option[String] = Some("I am wrapped in something")
     someValue.get should be(__)
@@ -16,6 +12,9 @@ class AboutOptions extends KoanSuite {
     nullValue should be(__)
   }
 
+  def maybeItWillReturnSomething(flag: Boolean): Option[String] = {
+    if (flag) Some("Found value") else None
+  }  
 
   koan("Represent null with None because null is a bad idea") {
     val value1 = maybeItWillReturnSomething(true)
@@ -54,8 +53,6 @@ class AboutOptions extends KoanSuite {
       case None => 0.0
     }
     value should be(__)
-
-
     val noValue: Option[Double] = None
     val value1 = noValue match {
       case Some(v) => v
