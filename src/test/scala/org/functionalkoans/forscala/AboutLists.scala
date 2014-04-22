@@ -79,7 +79,7 @@ class AboutLists extends KoanSuite {
     // map a function to double the numbers over the list
     a.map {v => v * 2} should equal(List(__, __, __, __, __))
 
-    // filter any values not divisible by 3 in the list
+    // filter any values divisible by 3 in the list
     a.filter {v => v % 3 == 0} should equal(List(__, __))
   }
 
