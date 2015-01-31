@@ -32,7 +32,7 @@ class Koans extends Suite {
     new AboutIterables,
     new AboutTraversables,
     new AboutNamedAndDefaultArguments,
-    new AboutManifests,
+    new AboutTypeTags,
     new AboutPreconditions,
     new AboutExtractors,
     new AboutByNameParameter,
