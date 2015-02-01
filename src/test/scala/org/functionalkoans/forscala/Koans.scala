@@ -7,7 +7,14 @@ class Koans extends Suite {
   override def nestedSuites = List(
     new AboutAsserts,
     new AboutValAndVar,
+    new AboutLiteralBooleans,
+    new AboutLiteralNumbers,
+    new AboutLiteralStrings,
     new AboutClasses,
+    new AboutUniformAccessPrinciple,
+    new AboutConstructors,
+    new AboutParentClasses,
+    new AboutEmptyValues,
     new AboutOptions,
     new AboutObjects,
     new AboutTuples,
@@ -16,6 +23,7 @@ class Koans extends Suite {
     new AboutMaps,
     new AboutSets,
     new AboutFormatting,
+    new AboutStringInterpolation,
     new AboutPatternMatching,
     new AboutCaseClasses,
     new AboutRange,
@@ -37,16 +45,9 @@ class Koans extends Suite {
     new AboutExtractors,
     new AboutByNameParameter,
     new AboutRepeatedParameters,
-    new AboutParentClasses,
-    new AboutEmptyValues,
     new AboutTypeSignatures,
-    new AboutUniformAccessPrinciple,
-    new AboutLiteralBooleans,
-    new AboutLiteralNumbers,
-    new AboutLiteralStrings,
     new AboutTypeVariance,
-    new AboutEnumerations,
-    new AboutConstructors
+    new AboutEnumerations
   )
 
   override def run(testName: Option[String], reporter: Reporter, stopper: Stopper, filter: Filter,
