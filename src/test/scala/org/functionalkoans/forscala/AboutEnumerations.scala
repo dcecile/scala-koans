@@ -7,7 +7,7 @@ import org.scalatest.matchers.ShouldMatchers
 class AboutEnumerations extends KoanSuite with ShouldMatchers {
 
 // To create an enumeration, create an object that extends the abstract class Enumeration,
-//          and set a val variable to the method Value.  This is a trick to give values to each val."
+// and set a val variable to the method Value.  This is a trick to give values to each val."
   koan("Value assigns a numerical value to fields") {
 
     object Planets extends Enumeration {
