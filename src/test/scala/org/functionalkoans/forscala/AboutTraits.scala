@@ -106,19 +106,15 @@ class AboutTraits extends KoanSuite {
     baker.logCache.size should be(__)
   }
 
-  koan("Traits are instantiated before a classes instantiation") {
+  koan("Traits are instantiated before a the mixed-in class instantiation") {
     var sb = List[String]()
 
     trait T1 {
-      sb = sb :+ "In T1: x=%s".format(x)
-      val x = 1
-      sb = sb :+ "In T1: x=%s".format(x)
+      sb = sb :+ "Instantiated T1"
     }
 
     class C1 extends T1 {
-      sb = sb :+ "In C1: y=%s".format(y)
-      val y = 2
-      sb = sb :+ "In C1: y=%s".format(y)
+      sb = sb :+ "Instantiated C1"
     }
 
     sb = sb :+ "Creating C1"
@@ -133,21 +129,15 @@ class AboutTraits extends KoanSuite {
     var sb = List[String]()
 
     trait T1 {
-      sb = sb :+ "In T1: x=%s".format(x)
-      val x = 1
-      sb = sb :+ "In T1: x=%s".format(x)
+      sb = sb :+ "Instantiated T1"
     }
 
     trait T2 {
-      sb = sb :+ "In T2: z=%s".format(z)
-      val z = 1
-      sb = sb :+ "In T2: z=%s".format(z)
+      sb = sb :+ "Instantiated T2"
     }
 
     class C1 extends T1 with T2 {
-      sb = sb :+ "In C1: y=%s".format(y)
-      val y = 2
-      sb = sb :+ "In C1: y=%s".format(y)
+      sb = sb :+ "Instantiated C1"
     }
 
     sb = sb :+ "Creating C1"
@@ -157,27 +147,21 @@ class AboutTraits extends KoanSuite {
     sb.mkString(";") should be(__)
   }
 
-  koan("Instantiations are tracked and will not allow a duplicate instantiation. " +
+  koan("Instantiations are tracked internally and will not allow a duplicate instantiation. " +
     "Note T1 extends T2, and C1 also extends T2, but T2 is only instantiated once.") {
 
     var sb = List[String]()
 
-    trait T1 extends T2 {
-      sb = sb :+ "In T1: x=%s".format(x)
-      val x = 1
-      sb = sb :+ "In T1: x=%s".format(x)
+    trait T1 extends T2 {  // Notice: T1 extends T2
+      sb = sb :+ "Instantiated T1"
     }
 
     trait T2 {
-      sb = sb :+ "In T2: z=%s".format(z)
-      val z = 1
-      sb = sb :+ "In T2: z=%s".format(z)
+      sb = sb :+ "Instantiated T2"
     }
 
     class C1 extends T1 with T2 {
-      sb = sb :+ "In C1: y=%s".format(y)
-      val y = 2
-      sb = sb :+ "In C1: y=%s".format(y)
+      sb = sb :+ "Instantiated C1"
     }
 
     sb = sb :+ "Creating C1"
@@ -194,27 +178,19 @@ class AboutTraits extends KoanSuite {
     var sb = List[String]()
 
     trait T1 {
-      sb = sb :+ "In T1: x=%s".format(x)
-      val x = 1
-      sb = sb :+ "In T1: x=%s".format(x)
+      sb = sb :+ "Instantiated T1"
     }
 
     trait T2 extends T1 {
-      sb = sb :+ "In T2: z=%s".format(z)
-      val z = 2
-      sb = sb :+ "In T2: z=%s".format(z)
+      sb = sb :+ "Instantiated T2"
     }
 
     trait T3 extends T1 {
-      sb = sb :+ "In T3: w=%s".format(w)
-      val w = 3
-      sb = sb :+ "In T3: w=%s".format(w)
+      sb = sb :+ "Instantiated T3"
     }
 
     class C1 extends T2 with T3 {
-      sb = sb :+ "In C1: y=%s".format(y)
-      val y = 4
-      sb = sb :+ "In C1: y=%s".format(y)
+      sb = sb :+ "Instantiated C1"
     }
 
     sb = sb :+ "Creating C1"
