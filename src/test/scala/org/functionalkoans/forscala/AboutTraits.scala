@@ -131,6 +131,8 @@ class AboutTraits extends KoanSuite {
     einstein.log.size should be (__)
   }
 
+  //Credit for the next set koans: http://www.artima.com/scalazine/articles/stackable_trait_pattern.html
+
   abstract class IntQueue {
     def get(): Int
     def put(x: Int)
