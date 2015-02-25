@@ -106,6 +106,136 @@ class AboutTraits extends KoanSuite {
     baker.logCache.size should be(__)
   }
 
+  koan("""Traits can also be mixed during instantiation after the fact!
+          | This is useful if you only want to mixin per instance and not per class""") {
+
+    trait Logging {
+      var logCache = List[String]()
+
+      def log(value: String) = {
+        logCache = logCache :+ value
+      }
+
+      def log = logCache
+    }
+
+    class Scientist (val firstName:String, val lastName:String) {
+        def discover(item:String) = s"I have discovered $item!"
+        def invent(item:String) = s"I have invented $item!"
+    }
+
+    val einstein = new Scientist("Albert",  "Einstein") with Logging  //mixin traits during instantiation!
+    einstein.discover("Relativity!")
+    einstein.log("Although it is utmost of importance that this does not fall into the wrong hands")
+
+    einstein.log.size should be (__)
+  }
+
+  abstract class IntQueue {
+    def get(): Int
+    def put(x: Int)
+  }
+
+  import scala.collection.mutable.ArrayBuffer
+
+  class BasicIntQueue extends IntQueue {
+    private val buf = new ArrayBuffer[Int]
+    def get() = buf.remove(0)
+    def put(x: Int) { buf += x }
+  }
+
+
+  koan("Traits are stackable and can change the behavior of methods that the traits are stacked upon") {
+    trait Doubling extends IntQueue {
+      abstract override def put(x: Int) { super.put(2 * x) } //abstract override is necessary to stack traits
+    }
+
+    class MyQueue extends BasicIntQueue with Doubling
+
+    val myQueue = new MyQueue
+    myQueue.put(3)
+    myQueue.put(10)
+    myQueue.get() should be (__)
+    myQueue.get() should be (__)
+  }
+
+  koan("Just like other traits, stackable traits can be mixed after the fact") {
+    trait Doubling extends IntQueue {
+      abstract override def put(x: Int) { super.put(2 * x) } //abstract override is necessary to stack traits
+    }
+
+    val myQueue = new BasicIntQueue with Doubling //mixin during instantiation
+
+    myQueue.put(40)
+    myQueue.get() should be (__)
+  }
+
+  koan(
+    """More traits can be stacked one atop another, make sure that all overrides
+      | are labelled, abstract override.  The order of the mixins are important.
+      | Traits on the right take effect first.""") {
+
+    trait Doubling extends IntQueue {
+      abstract override def put(x: Int) { super.put(2 * x) } //abstract override is necessary to stack traits
+    }
+
+    trait Incrementing extends IntQueue {
+      abstract override def put(x: Int) { super.put(x + 1) }
+    }
+
+    val myQueue = new BasicIntQueue with Doubling with Incrementing //mixin during instantiation
+    myQueue put 4
+    myQueue put 3
+
+    myQueue.get should be (__)
+    myQueue.get should be (__)
+  }
+
+
+  koan(
+    """Same koans as before except that we swapped the order of the traits""") {
+
+    trait Doubling extends IntQueue {
+      abstract override def put(x: Int) { super.put(2 * x) } //abstract override is necessary to stack traits
+    }
+
+    trait Incrementing extends IntQueue {
+      abstract override def put(x: Int) { super.put(x + 1) }
+    }
+
+    val myQueue = new BasicIntQueue with Incrementing with Doubling //mixin during instantiation
+    myQueue put 4
+    myQueue put 3
+    myQueue.get should be (__)
+    myQueue.get should be (__)
+  }
+
+
+  koan(
+    """Using three traits to enhance the IntQueue: Doubling, Incrementing, and Filtering!""") {
+
+    trait Doubling extends IntQueue {
+      abstract override def put(x: Int) { super.put(2 * x) } //abstract override is necessary to stack traits
+    }
+
+    trait Incrementing extends IntQueue {
+      abstract override def put(x: Int) { super.put(x + 1) }
+    }
+
+    trait Filtering extends IntQueue {
+      abstract override def put(x: Int) {
+        if (x >= 0) super.put(x)
+      }
+    }
+
+    val myQueue = new BasicIntQueue with Incrementing with Doubling with Filtering //mixin during instantiation
+    myQueue put 4
+    myQueue put -1
+    myQueue put 3
+    myQueue.get should be (__)
+    myQueue.get should be (__)
+  }
+
   koan("Traits are instantiated before a the mixed-in class instantiation") {
     var sb = List[String]()
 
