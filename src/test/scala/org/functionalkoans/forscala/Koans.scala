@@ -17,6 +17,7 @@ class Koans extends Suite {
     new AboutParentClasses,
     new AboutOptions,
     new AboutObjects,
+    new AboutApply,
     new AboutTuples,
     new AboutHigherOrderFunctions,
     new AboutEmptyValues,
