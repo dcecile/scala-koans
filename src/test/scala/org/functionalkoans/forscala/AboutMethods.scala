@@ -128,10 +128,34 @@ class AboutMethods extends KoanSuite {
   }
 
   koan(
+    """Remember you can have strange characters in values and variables as long as they're
+      |  after an underscore, well you can do the same in methods""") {
+
+    class Pennies(val n:Int)
+    def doYouHaveAnySpareChange_?() = new Pennies(25)
+    doYouHaveAnySpareChange_? should be(__)
+  }
+
+  koan(
+    """If you also remember you can add reserved words or words with space to any value or variable?
+      | Same applies for methods. Although please note that this is uncommon unless you really are into
+      | internal DSLs""") {
+
+    class Employee(val `first name`:String, val `last name`:String, val `employee status`: String)
+
+    def `put employee on probation`(employee: Employee) = {
+       new Employee(employee.`first name`, employee.`last name`, "Probation")
+    }
+
+    val probationEmployee = `put employee on probation`(new Employee("Milton", "Waddams", ""))
+    probationEmployee.`employee status` should be (__)
+  }
+
+  koan(
     """Convention (not required for the compiler) states that if you a call a method that
       |returns a Unit, invoke that method with empty parenthesis, other leave the parenthesis out""") {
 
-    def add(a:Int, b:Int) = a + b //implicit return type of Int!
+    def add(a:Int, b:Int) = a + b //implied return type of Int!
     def performSideEffect():Unit = System.currentTimeMillis
 
     add(4,6) should be (__)
