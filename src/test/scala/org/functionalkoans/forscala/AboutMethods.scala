@@ -126,4 +126,15 @@ class AboutMethods extends KoanSuite {
 
     factorial(3) should be(6)
   }
+
+  koan(
+    """Convention (not required for the compiler) states that if you a call a method that
+      |returns a Unit, invoke that method with empty parenthesis, other leave the parenthesis out""") {
+
+    def add(a:Int, b:Int) = a + b //implicit return type of Int!
+    def performSideEffect():Unit = System.currentTimeMillis
+
+    add(4,6) should be (__)
+    performSideEffect() //Notice the parenthesis, since the method we called is Unit!
+  }
 }
