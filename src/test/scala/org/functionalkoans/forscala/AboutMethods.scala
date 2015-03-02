@@ -161,4 +161,17 @@ class AboutMethods extends KoanSuite {
     add(4,6) should be (__)
     performSideEffect() //Notice the parenthesis, since the method we called is Unit!
   }
+
+  koan(
+    """Methods with colons are right-associative, that means the object that a method is on will be on
+      |the _right_ and the method parameter will be on the _left_""") {
+
+    class Foo (y:Int) {
+      def ~:(n:Int) = n + y + 3
+    }
+
+    val foo = new Foo(9)
+    10 ~: foo should be (__)
+    foo.~:(40) should be (__)
+  }
 }
