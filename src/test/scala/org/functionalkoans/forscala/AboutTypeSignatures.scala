@@ -8,7 +8,8 @@ class AboutTypeSignatures extends KoanSuite {
   }
 
   koan("Most of the time, Scala will infer the type and [] are optional") {
-    val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" :: Nil //Infers that the list assigned to variable is of type List[String]
+    //Infers that the list assigned to variable is of type List[String]
+    val z = "Do" :: "Re" :: "Mi" :: "Fa" :: "So" :: "La" :: "Te" :: "Do" :: Nil
   }
 
   koan("A trait can be declared containing a type, where a concrete implementer will satisfy the type") {
@@ -57,7 +58,7 @@ class AboutTypeSignatures extends KoanSuite {
 
   koan("asInstanceOf[className] is used to cast one reference to another") {
     trait Randomizer[A] {
-      def draw(): A
+      def draw: A
     }
 
     class IntRandomizer extends Randomizer[Int] {
@@ -98,6 +99,4 @@ class AboutTypeSignatures extends KoanSuite {
     null.asInstanceOf[Int] should be(__)
     null.asInstanceOf[Short] should be(__)
   }
-
-
 }
