@@ -3,7 +3,7 @@ package org.functionalkoans.forscala
 import support.KoanSuite
 
 class AboutParentClasses extends KoanSuite {
-  koan("Class heirarchy is linear, a class can only extend from one parent class") {
+  koan("Class hierarchy is linear, a class can only extend from one parent class") {
     class Worker(val firstName: String, val lastName: String) {}
     class Employee(override val firstName: String, override val lastName: String,
                    val employeeID: Long) extends Worker(firstName, lastName)
