@@ -19,7 +19,7 @@ class AboutApply extends KoanSuite {
 
   koan("""The apply method can also be used in singleton objects as well, in fact, it is the most common way
           to create a factory method in an object""") {
-    class Employee private (val firstName:String, val lastName:String) //private constructor!
+    class Employee (val firstName:String, val lastName:String) //private constructor!
 
     object Employee {
         def apply(firstName:String, lastName:String) = new Employee(firstName, lastName)
