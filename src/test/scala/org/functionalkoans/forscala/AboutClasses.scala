@@ -4,7 +4,6 @@ import support.KoanSuite
 
 class AboutClasses extends KoanSuite {
 
-
   // you can define class with var or val parameters
   class ClassWithVarParameter(var description: String)
 
