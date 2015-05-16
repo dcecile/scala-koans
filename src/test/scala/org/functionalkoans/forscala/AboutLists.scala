@@ -126,6 +126,4 @@ class AboutLists extends KoanSuite {
     b.tail should be(__)
     c.tail should be(__)
   }
-
-
 }
