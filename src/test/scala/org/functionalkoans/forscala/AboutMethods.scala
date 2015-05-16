@@ -133,7 +133,7 @@ class AboutMethods extends KoanSuite {
 
     class Pennies(val n:Int)
     def doYouHaveAnySpareChange_?() = new Pennies(25)
-    doYouHaveAnySpareChange_? should be(__)
+    doYouHaveAnySpareChange_?.n should be(__)
   }
 
   koan(
