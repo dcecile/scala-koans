@@ -1,8 +1,33 @@
+# Scala Koans
+_Learn Scala with the koans_
+
+# Prerequisites
+
+You'll need to install a JDK (to run the Scala compiler) and [SBT](http://www.scala-sbt.org/) (to download the Scala compiler and library dependencies).
+
+# Workflow (text-based)
+
+Your meditation session will be assisted by SBT, an excellent tool for interactive Scala development.
+
+1. Open a new terminal
+2. Get this code with `git clone https://github.com/dcecile/scala-koans.git`
+3. Go into the new directory (`cd scala-koans`)
+4. Start SBT using `sbt namaste`
+5. Read the meditation message
+6. Open the indicated source file and try solve the koan
+7. Go to step 5
+
+You can exit SBT at any time, and your meditation will automatically resume from where you left off last.
+
+# List of koans
+
+Here are all the koans included in this repository:
+
 <table border="1" cellspacing="0" cellpadding="10">
 <tbody>
 <tr>
-<td><strong>USE</strong></td>
-<td><strong>TO MEDITATE ON ...</strong></td>
+<td><em>Use...</em></td>
+<td><em>to meditate on...</em></td>
 </tr>
 <tr>
 	<td>AboutAsserts</td>
@@ -140,7 +165,6 @@
 	<td></td>
 	<td>How to add and remove map content</td>
 </tr>
-
 <tr>
 	<td>AboutMutableSets</td>
 	<td>How to create sets whose contents can be altered</td>
@@ -304,8 +328,6 @@
 	<td>About Traversables</td>
 	<td>How to do fun stuff with basic Scala collections without affecting state</td>
 </tr>
-
-
 <tr>
 	<td>AboutInfixPrefixAndPostfixOperators</td>
 	<td>How to know what the compiler is doing with your expressions</td>
@@ -338,6 +360,14 @@
 	<td>AboutImportsAndPackages</td>
 	<td>How to declare packages of your own and how to import other packages</td>
 </tr>
-
 </tbody>
 </table>
+
+# Origins
+
+If you're curious about where these koans came from, you can take a look at these links:
+
+- http://www.scalakoans.org/
+- https://bitbucket.org/dickwall/scala-koans
+- https://github.com/rubbish/scala-koans
+- https://github.com/dickwall/functional-koans/tree/scala
