@@ -7,18 +7,18 @@ import language.reflectiveCalls
 object Master extends Stopper {
   var studentNeedsToMeditate = false
 
-  type HasTestNameAndSuiteName = {
-    val suiteName: String
+  type Event = {
     val testName: String
+    val message: String
   }
 
-  def studentFailed (event: HasTestNameAndSuiteName): String = {
+  def studentFailed (event: Event): String = {
     studentNeedsToMeditate = true
     meditationMessage(event)
   }
 
-  private def meditationMessage(event: HasTestNameAndSuiteName) = {
-    "Please meditate on koan \"%s\" of suite \"%s\"" format (event.testName, event.suiteName)
+  private def meditationMessage(event: Event) = {
+    s"Please meditate on koan '${event.testName}': ${event.message}"
   }
 
   override def stopRequested: Boolean = studentNeedsToMeditate
