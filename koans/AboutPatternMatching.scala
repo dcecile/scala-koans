@@ -30,7 +30,7 @@ class AboutPatternMatching extends KoanSuite {
       case _ => println(stuff); 0
     }
 
-    myStuff should be(__, __, __)
+    myStuff should be((__, __, __))
 
   }
 

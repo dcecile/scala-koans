@@ -22,7 +22,7 @@ class AboutSets extends KoanSuite {
   }
 
   koan("Sets may be of mixed type") {
-    val mySet = Set("Michigan", "Ohio", 12)
+    val mySet = Set[Any]("Michigan", "Ohio", 12)
 
     mySet.contains(12) should be(__)
 
@@ -30,7 +30,7 @@ class AboutSets extends KoanSuite {
   }
 
   koan("Sets can be checked for member existence") {
-    val mySet = Set("Michigan", "Ohio", 12)
+    val mySet = Set[Any]("Michigan", "Ohio", 12)
 
     mySet(12) should be(__)
     mySet("MI") should be(__)

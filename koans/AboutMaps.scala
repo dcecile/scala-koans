@@ -52,7 +52,7 @@ class AboutMaps extends KoanSuite {
   }
 
   koan("Map keys may be of mixed type") {
-    val myMap = Map("Ann Arbor" -> "MI", 49931 -> "MI")
+    val myMap = Map[Any, String]("Ann Arbor" -> "MI", 49931 -> "MI")
     myMap("Ann Arbor") should be(__)
     myMap(49931) should be(__)
   }

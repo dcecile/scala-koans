@@ -7,7 +7,8 @@ version := "1.0"
 scalaVersion := "2.12.1"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.0.3" % Test withSources() withJavadoc())
+  "org.scalatest" %% "scalatest" % "3.0.3" % Test withSources() withJavadoc()
+)
 
 scalaSource in Test := baseDirectory.value / "koans"
 javaSource in Test := baseDirectory.value / "koans"
@@ -22,8 +23,17 @@ showTiming := false
 // Disable printing a message indicating the success or failure of running a task
 showSuccess := false
 
-// Append -deprecation to the options passed to the Scala compiler
-scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
+// Show helpful compiler warnings
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-encoding", "UTF-8",
+  "-feature",
+  "-unchecked",
+  "-Xlint",
+  "-Ywarn-dead-code",
+  "-Ywarn-numeric-widen",
+  "-Ywarn-unused-import"
+)
 
 // Disable updating dynamic revisions (including -SNAPSHOT versions)
 offline := true

@@ -43,35 +43,35 @@ class AboutNamedAndDefaultArguments() extends KoanSuite {
     val myColor = me.addColors(green = 0, red = 255, blue = 0)
 
     // for koan, remove the values in the should equal
-    myColor should equal(__, __, __)
+    myColor should equal((__, __, __))
   }
 
   koan("can default arguments if you leave them off") {
     val me = new WithoutClassParameters()
     val myColor = me.addColorsWithDefaults(green = 255)
 
-    myColor should equal(__, __, __)
+    myColor should equal((__, __, __))
   }
 
   koan("can access class parameters and specify arguments in any order if you use their names") {
     val me = new WithClassParameters(40, 50, 60)
     val myColor = me.addColors(green = 50, red = 60, blue = 40)
 
-    myColor should equal(__, __, __)
+    myColor should equal((__, __, __))
   }
 
   koan("can access class parameters and default arguments if you leave them off") {
     val me = new WithClassParameters(10, 20, 30)
     val myColor = me.addColorsWithDefaults(green = 70)
 
-    myColor should equal(__, __, __)
+    myColor should equal((__, __, __))
   }
 
   koan("can default class parameters and have default arguments too") {
     val me = new WithClassParametersInClassDefinition()
     val myColor = me.addColorsWithDefaults(green = 70)
 
-    myColor should equal(__, __, __)
+    myColor should equal((__, __, __))
   }
 
   koan("default parameters can be functional too") {

@@ -22,18 +22,16 @@ class AboutFormatting extends KoanSuite {
 
   }
 
-  koan("Character Literals can be an escape sequence, including octal or hexidecimal") {
+  koan("Character Literals can be an escape sequence, including hexidecimal") {
 
     val c = '\u0061' //unicode for a
-    val d = '\141' //octal for a
-    val e = '\"'
-    val f = '\\'
+    val d = '\"'
+    val e = '\\'
 
 
     "%c".format(c) should be(__)
     "%c".format(d) should be(__)
     "%c".format(e) should be(__)
-    "%c".format(f) should be(__)
   }
 
 

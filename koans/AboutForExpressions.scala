@@ -29,6 +29,6 @@ class AboutForExpressions extends KoanSuite {
     val coordinates = for {
       x <- xValues
       y <- yValues} yield (x, y)
-    coordinates(4) should be(__, __)
+    coordinates(4) should be((__, __))
   }
 }

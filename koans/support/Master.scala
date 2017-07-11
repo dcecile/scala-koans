@@ -1,6 +1,5 @@
 package org.functionalkoans.forscala.support
 
-import org.scalatest.events.Event
 import org.scalatest.Stopper
 import language.reflectiveCalls
 
