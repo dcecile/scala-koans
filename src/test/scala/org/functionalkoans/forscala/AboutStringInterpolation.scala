@@ -1,9 +1,8 @@
 package org.functionalkoans.forscala
 
 import org.functionalkoans.forscala.support.KoanSuite
-import org.scalatest.matchers.ShouldMatchers
 
-class AboutStringInterpolation extends KoanSuite with ShouldMatchers {
+class AboutStringInterpolation extends KoanSuite {
 
   koan(
     """String can be placed in not only in a format method call

@@ -1,11 +1,10 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
 import language.postfixOps
 import Stream._
 
-class AboutTraversables extends KoanSuite with ShouldMatchers {
+class AboutTraversables extends KoanSuite {
 
 
   koan( """Traverables are the superclass of Lists, Arrays, Maps, Sets, Streams, and more.

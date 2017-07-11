@@ -4,24 +4,23 @@ name := "Scala Koans"
 
 version := "1.0"
 
-scalaVersion := "2.10.4"
-
-traceLevel := -1
-
-logLevel := Level.Info
-
-// disable printing timing information, but still print [success]
-showTiming := false
-
-// disable printing a message indicating the success or failure of running a task
-showSuccess := false
-
-// append -deprecation to the options passed to the Scala compiler
-scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
-
-// disable updating dynamic revisions (including -SNAPSHOT versions)
-offline := true
+scalaVersion := "2.12.1"
 
 libraryDependencies ++= Seq(
-	"org.scalatest" %% "scalatest" % "1.9.1" % "test" withSources() withJavadoc()
-)
+  "org.scalatest" %% "scalatest" % "3.0.3" % Test withSources() withJavadoc())
+
+traceLevel := -1
+logLevel := Level.Info
+logBuffered in Test := false
+
+// Disable printing timing information, but still print [success]
+showTiming := false
+
+// Disable printing a message indicating the success or failure of running a task
+showSuccess := false
+
+// Append -deprecation to the options passed to the Scala compiler
+scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
+
+// Disable updating dynamic revisions (including -SNAPSHOT versions)
+offline := true

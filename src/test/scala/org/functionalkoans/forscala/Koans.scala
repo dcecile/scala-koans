@@ -1,10 +1,11 @@
 package org.functionalkoans.forscala
 
 import org.scalatest._
+import org.scalatest.events._
 import support.Master
 
 class Koans extends Suite {
-  override def nestedSuites = List(
+  override def nestedSuites = Vector(
     new AboutAsserts,
     new AboutValAndVar,
     new AboutLiteralBooleans,
@@ -52,9 +53,18 @@ class Koans extends Suite {
     new AboutEnumerations
   )
 
-  override def run(testName: Option[String], reporter: Reporter, stopper: Stopper, filter: Filter,
-                   configMap: Map[String, Any], distributor: Option[Distributor], tracker: Tracker) {
-    super.run(testName, reporter, Master, filter, configMap, distributor, tracker)
+  private class IgnoreStopMessages(other: Reporter) extends Reporter {
+    def apply(event: Event) {
+      event match {
+        case _: InfoProvided => ()
+        case _ => other(event)
+      }
+
+    }
+  }
+
+  override def run(testName: Option[String], args: Args): Status = {
+    super.run(testName, args.copy(reporter = new IgnoreStopMessages(args.reporter), stopper = Master))
   }
 
 }

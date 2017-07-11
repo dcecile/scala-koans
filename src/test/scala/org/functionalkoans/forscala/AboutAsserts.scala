@@ -1,10 +1,9 @@
 package org.functionalkoans.forscala
 
-import org.scalatest.matchers.ShouldMatchers
 import support.KoanSuite
 
 // meditate on AboutAsserts to see how the Scala Koans work
-class AboutAsserts extends KoanSuite with ShouldMatchers {
+class AboutAsserts extends KoanSuite {
 
   koan("asserts can take a boolean argument") {
     assert(false) // should be true
