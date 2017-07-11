@@ -9,6 +9,9 @@ scalaVersion := "2.12.1"
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.3" % Test withSources() withJavadoc())
 
+scalaSource in Test := baseDirectory.value / "koans"
+javaSource in Test := baseDirectory.value / "koans"
+
 traceLevel := -1
 logLevel := Level.Info
 logBuffered in Test := false
