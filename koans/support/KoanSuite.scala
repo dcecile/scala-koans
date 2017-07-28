@@ -21,39 +21,38 @@ trait KoanSuite extends FunSuite with Matchers {
 
   private class ReportToTheMaster(other: Reporter) extends Reporter {
     var failed = false
-    def failure(event: Master.Event) {
+    def failure(testName: String, message: String): Unit = {
       failed = true
       note("*****************************************")
       note("*****************************************")
       note("")
       note("")
+      note(s"$testName:")
       note("")
-      note(Master.studentFailed(event))
+      note(s"  $message")
       note("")
+      note("  Please meditate on this koan.")
       note("")
       note("")
       note("*****************************************")
       note("*****************************************")
+      Master.studentFailed()
     }
 
-    def apply(event: Event) {
+    def apply(event: Event): Unit = {
       event match {
-        case testIgnored: TestIgnored => failure(new {
-          val testName = testIgnored.testName
-          val message = "(ignored)"
-        })
-        case testFailed: TestFailed => failure(new {
-          val testName = testFailed.testName
-          val message = testFailed.message
-        })
-        case testPending: TestPending => failure(new {
-          val testName = testPending.testName
-          val message = "___"
-        })
+        case testIgnored: TestIgnored => failure(
+          testIgnored.testName,
+          "(ignored)")
+        case testFailed: TestFailed => failure(
+          testFailed.testName,
+          testFailed.message)
+        case testPending: TestPending => failure(
+          testPending.testName,
+          "__")
         case _: TestSucceeded => ()
         case _ => other(event)
       }
-
     }
   }
 
