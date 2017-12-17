@@ -1,13 +1,13 @@
-addCommandAlias("namaste", "~test-only org.functionalkoans.forscala.Koans")
+addCommandAlias("namaste", "~testOnly org.functionalkoans.forscala.Koans")
 
 name := "Scala Koans"
 
 version := "1.0"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.4"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.0.3" % Test withSources() withJavadoc()
+  "org.scalatest" %% "scalatest" % "3.0.4" % Test withSources() withJavadoc()
 )
 
 scalaSource in Test := baseDirectory.value / "koans"
@@ -34,6 +34,3 @@ scalacOptions ++= Seq(
   "-Ywarn-numeric-widen",
   "-Ywarn-unused-import"
 )
-
-// Disable updating dynamic revisions (including -SNAPSHOT versions)
-offline := true
